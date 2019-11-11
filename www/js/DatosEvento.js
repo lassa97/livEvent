@@ -1,7 +1,7 @@
 
 
   let map;
-
+/*
   try{
     cordova.plugins.notification.local.schedule({
         title: 'My first notification',
@@ -10,7 +10,7 @@
     },{ skipPermission: true });
   }catch( e){
     alert(e);
-  }
+  }*/
 
   //---------------------------------------------------------------------------------------
   //
@@ -36,7 +36,7 @@
   function getids(){
     let url= document.URL;
     let variables1=url.split("?");
-    let evento_id=variables1[1].split("=")[1];
+    let evento_id=variables1[1].split("=")[1].split("#")[0];
     montar_cabecera(evento_id);
     //montar_cuerpo(evento_id);
   }
@@ -73,7 +73,7 @@
   }
 
   function provisional(){
-    
+
   }
 
 
@@ -180,7 +180,7 @@
                 //console.log(JSON.stringify(datos));
                 let datos_evento=datos['msg'];
                 constructor_cabecera(datos_evento['description'],datos_evento['localization'],datos_evento['date'],datos_evento['image'],id);
-                //montar_artista(datos_evento['artistID']);
+                montar_artista(datos_evento['artistID']);
                 constructor_tickets(null);
                 montar_notificaciones(datos_evento['artistID'],id);
             },error: function(error){
@@ -201,8 +201,32 @@
 
   }
   function montar_artista(id){
+    console.log("va");
+    $.ajax({url: "https://livevent.es/api/v1/artist_list.php?artistID="+id,
+    success: function(result,status){
+                //document.getElementById("Artista_nombre").textContent=JSON.stringify(result);
+                let datos=JSON.parse(JSON.stringify(result));
+                console.log(datos);
+                //console.log(JSON.stringify(datos));
+                //let datos_evento=datos['msg'];
+                //constructor_cabecera(datos_evento['description'],datos_evento['localization'],datos_evento['date'],datos_evento['image'],id);
+                //montar_artista(datos_evento['artistID']);
+                //constructor_tickets(null);
+                //montar_notificaciones(datos_evento['artistID'],id);
+            },error: function(error){
 
-  }
+                let reason_error=JSON.parse(JSON.stringify(error));
+                console.log(reason_error);
+                if(reason_error['readyState']===0){
+                  alert("No hay conexión a Internet");
+                  //Hacer una página web de mantenimiento/No internet
+                  //window.open()
+                }
+              }
+
+
+  });
+}
   function montar_notificaciones(id_artista,id_evento){
     id_evento=parseInt(id_evento)
     id_artista=parseInt(id_artista)
