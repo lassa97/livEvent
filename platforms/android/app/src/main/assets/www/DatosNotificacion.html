@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/notificaciones.css">
+    <link rel="stylesheet" href="css/comun.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/cordova.js"></script>
+    <title>Notification</title>
+</head>
+<body>
+  <div data-role="page" data-theme="d">
+
+    <div data-role="header" >
+      <a style="background: none;border:none" onclick="window.history.back();" class="ui-btn ui-nodisc-icon  ui-corner-all ui-icon-arrow-l ui-btn-icon-notext"></a>
+        <h1 class="titulos_header">Notificación </h1>
+
+    </div>
+    <div data-role="content" data-theme="d">
+      <h2 id="titulo_notificacion"> Titulo de la noticia</h2>
+      <div id="cuerpo_notificacion" class="ui-body-a data-theme-a ui-corner-all">
+
+      </div>
+      <ul  id="info_artista" data-role="listview" data-inset="true"></ul>
+      <div data-role="panel" id="popupsocial" data-theme="d" data-position="right" data-display="overlay" class="ui-group-theme-d ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
+        <ul id="listado_social" data-role="listview" data-inset="false" data-theme="d"  data-icon="false" style="border:none" >
+          <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp')">
+              <img src="img/Iconos_compartir/whatsapp.png">
+              <h2>Whatsapp</h2>
+            </a>
+          </li>
+           <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook')">
+             <img src="img/Iconos_compartir/Facebook.png">
+             <h2>Facebook</h2>
+           </a>
+           </li>
+           <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter')">
+             <img src="img/Iconos_compartir/Twitter.png">
+             <h2>Twitter</h2>
+           </a>
+           </li>
+           <li class="listitem" style="border:none" ><a style="border:none" data-icon="false">
+             <img src="img/Iconos_compartir/Link.png">
+             <h2>Copiar link</h2>
+           </a>
+           </li>
+         </ul>
+      </div>
+      </div>
+      <div data-role="foot" data-theme="d">
+      <div data-role="navbar" data-iconpos="left">
+        <ul style="font-size:15px">
+          <li ><a  id="seguir_evento" class="navbar_eventos ui-shadow" data-icon="plus"  >Seguir evento</a>
+          </li>
+
+          <li><a href="#popupsocial" class="navbar_compartir ui-shadow" >Compartir evento</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/DatosNotificacion.js"></script>
+  <script src="js/funciones_generales.js"></script>
+</body>
+
+</html>

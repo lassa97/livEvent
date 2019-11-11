@@ -1,0 +1,45 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+div.box {
+  text-align: center;
+  width: 95%;
+  border-radius: 3px;
+  padding: 8px;
+  margin: 10px;
+  background-color:#F39090;
+}
+div.box {
+  font-family: Agency FB;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+div.box:hover {
+  cursor: pointer;
+  background-color:#F39090;
+}
+.redessociales{
+  margin-top: 3px;
+  margin-left: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.nombre{
+  margin-left:3%;
+}
+
+.fuenteartista{
+  font-family: Agency FB;
+  font-weight: bold;
+}
+
+.fuentedescripcion{
+  font-family: Agency FB;
+}

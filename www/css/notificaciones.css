@@ -1,0 +1,25 @@
+
+.evento-btn{
+}
+.texto-mensaje{
+      text-align: justify;
+      margin-left: 4%;
+      margin-right: 4%;
+      margin-top: 5px;
+      font-size:16px;
+}
+.imagen-mensaje{
+  max-width: 92%;
+
+}
+.listitem {
+    margin-top: 10px !important;
+}
+#listado_social{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+}
+#listado_social .ui-li {
+    border: none;
+}

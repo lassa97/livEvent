@@ -1,0 +1,62 @@
+@import url(https://fonts.googleapis.com/css?family=Megrim);
+
+
+.formulario{
+	font-size: 15;
+	font-family: Agency FB;
+	height: 1500px;
+	
+}
+
+.genero{
+	margin-bottom: 200px;
+}
+
+.acceder{
+
+}
+
+.acceder:hover{
+	background-color: #79E579;
+	border-color: #126012;
+
+}
+
+.menuestilo{
+	font-size:14px;
+	font-family: Arial;
+	color:yellow; 
+	text-decoration: none;
+}
+h2{
+	font-size: 14px;
+	font-family: arial;
+	color:white;
+}
+
+li {
+	list-style:none;
+}
+li a {
+  display: block;
+  list-style:none;
+  padding: 10px 10px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #7F7373;
+  color: red;
+}
+
+.titulomenu{
+  font-family: 'Megrim', cursive;
+  margin:3rem auto -2rem;
+  font-size:4rem;
+  letter-spacing:-2px;
+  color:#AC1313;
+  font-size: 50px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+
+  
+    <link rel="stylesheet" type="text/css" href="css/registro.css" />
+    <link rel="stylesheet" type="text/css" href="css/Personalizado.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/comun.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/Funciones.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB0uU81YMoqnicSmxts4cTWD3QOYbo35nU"></script>
+    <script type="text/javascript" src="js/googleMaps.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+
+    </script>
+
+    <title>Acceso</title>
+</head>
+<body>
+
+    <div data-role="page">
+
+    <!--MENU PARA PONER EN LAS PAGINAS-->
+    <div data-role="panel" id="leftpanel3" data-theme="b" data-position="left" data-display="overlay" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open">
+            <div class="ui-panel-inner">
+                <h1 class="titulomenu">livEvent</h1> 
+                <ul data-role="perfil-artista.html" data-inset="false">
+                <li><a  href="perfil-artista.html" target="_top">
+                  <h2 >Mi perfil</h2>
+                </a>
+                </li>
+                <li><a href="crearevento.html" target="_top">
+                  <h2>Crear evento</h2>
+                </a>
+                </li>
+
+                <!--Como desconectamos???????-->
+                <li><a href="#"  target="_top">
+                  <h2>Desconectar</h2>
+                </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        <!--MENU PARA PONER EN LAS PAGINAS-->
+
+      <div data-role="header" data-theme="b">
+
+          <!--MENU PARA PONER EN LAS PAGINAS-->
+          <a style="background: none;border:none"href="#leftpanel3" class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Delete</a>
+          <!--MENU PARA PONER EN LAS PAGINAS-->
+
+            <h1 class="titulos_header">ACCESO</h1>
+
+      </div>
+  <div style="padding:0px" data-role="content" data-theme="b">
+    <div data-role="navbar" >
+        <ul>
+            <li><a href="login.html" class="ui-btn-active ui-state-persist" target="registro">Login</a>
+        </li>
+            <li><a href="registro.html" target="registro">Registro</a></li>
+        </ul>
+    </div>
+  </div>
+
+      <iframe  src="login.html" name="registro" style="width:100%;height:100vh;overflow:hidden;border:none" >
+      </iframe>
+
+    </div>
+</body>
+
+</html>

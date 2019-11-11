@@ -1,0 +1,10 @@
+.ui-icon-myapp-email {
+	background-image: url("images/icons-png/flecha-l.jpeg");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	.ui-icon-myapp-email {
+		background-image: url("images/icons-png/flecha-l.jpeg");
+		background-size: 18px 18px;
+	}
+}

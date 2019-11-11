@@ -1,0 +1,60 @@
+#Event-image{
+  height:200px;
+  width:100%;
+  overflow: hidden;
+  background-image: url("../img/cartel_prueba.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#Nombre-Artista{
+  padding-top: 2%;
+  font-size: 24px;
+  margin-left: 2%;
+}
+#Fecha-evento{
+  margin-top: 2%;
+  font-size: 16px;
+  margin-left: 2%;
+}
+#Sala-evento{
+  margin-top: 0.3%;
+  font-size: 16px;
+  margin-left: 2%;
+  padding-bottom: 0.5%;
+}
+.Event-info{
+  border-bottom: 2px darkgray solid;
+  width: 100%;
+  background-color: white;
+}
+.Event-notificaciones {
+  margin-left: 2%;
+}
+.Media-share{
+  padding-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 2%;
+}
+#resto{
+  background-color: lightgray;
+}
+button{
+  font-size: 16px;
+}
+.scroll {
+    margin: 4px,4px;
+    padding: 4px;
+    max-height: 150px;
+    min-height: 20px;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align: justify;
+}
+.Eventos-titulos{
+  padding-top: 1%;
+  width:100%;
+  padding-left: 2%;
+  padding-bottom: 0.5%;
+  font-size: 16px;
+  background-color: lightgray;
+}

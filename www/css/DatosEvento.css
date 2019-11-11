@@ -1,0 +1,29 @@
+
+.evento-btn {
+  width:28%;
+  font-size:15px
+
+}
+.jumbotron{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+}
+.eventos-notificaciones{
+  width:95%;
+}
+.titulos_listas{
+  color:#f40b16;
+  font-size:18px;
+  font-weight: 500;
+}
+.ui-navbar{
+  border-left: none;
+  border-right: none;
+}
+.ui-body-d{
+  border:none
+}
+li.ui-last-child > a{
+  border-bottom:none !important;
+}

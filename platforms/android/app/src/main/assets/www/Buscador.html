@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+
+        <link rel="stylesheet" href="css/iconos_personalizados.css">
+    <link rel="stylesheet" type="text/css" href="css/Personalizado.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/comun.css">
+
+
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/Funciones.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+
+    </script>
+
+    <title>Eventos</title>
+</head>
+<body>
+  <div data-role="page" data-theme="d">
+
+    <div style="padding:0px;margin:5px" data-role="header" role="main" data-theme="a" class="ui-content ui-shadow" data-inset="true" >
+
+        <fieldset class="ui-grid-as">
+          <div style="width:10%;text-align:center;padding-top:10px ;align-content:center"class="ui-block-a">
+            <a style="background: none;border:none" onclick="window.history.back();" class="ui-btn ui-alt-icon ui-nodisc-icon  ui-corner-all ui-icon-arrow-l ui-btn-icon-notext"></a>
+          </div>
+          <div style="width:88%;height:100%"class="ui-block-b">
+            <input id="buscador" onclick="ostias();" onkeyup="busqueda();" style="border:none;border-color:transparent;height:100%;background:none" class=" ui-alt-icon"  type="text" value="" data-clear-btn="true"placeholder="Buscar un artista">
+          </div>
+
+        </fieldset>
+    </div>
+    <div class="ui-content" style="padding:" data-role="content" role="main">
+         <ul style="padding:0px"data-role="listview" data-inset="false" data-theme="d"  data-filter="false" data-icon="false">
+            <li ><a class="eventos-busqueda">
+              <h2>Evento</h2>
+            </a>
+          </li>
+          <li><a class="eventos-busqueda" >
+            <h2>Evento</h2>
+          </a>
+        </li>
+        </ul>
+    </div>
+
+
+  </div>
+  <script type="text/javascript" src="js/pagina_search.js"></script>
+</body>
+
+</html>

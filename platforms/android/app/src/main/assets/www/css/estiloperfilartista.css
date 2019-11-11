@@ -1,0 +1,430 @@
+
+/* Fuentes letras */
+@font-face {
+  font-family: 'Calisto-MT';
+  src: url(../fuentes/Calisto-MT.ttf); }
+
+@font-face {
+  font-family: 'Calisto-MT-Italic';
+  src: url(../fuentes/Calisto-MT-Italic.ttf); }
+
+@font-face {
+  font-family: 'Calisto-MT-Bold';
+  src: url(../fuentes/Calisto-MT-Bold.ttf); }
+
+/* Estilo para toda la página */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Calisto-MT"; }
+
+
+/* Estilo títulos h2 */
+.estilo-h2 {
+  font-size: 48px;
+  text-align: center;
+  color: #222; }
+  .titulo-eventos{
+    margin-top: 20px;
+  }
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+@media (max-width: 1250px) {
+  .estilo-h2 {
+    font-size: 38px; } }
+@media (max-width: 650px) {
+  .estilo-h2 {
+    font-size: 30px; } }
+
+
+/* Menu */
+.menudesplegable {
+  position: absolute;
+  top: 4.6%;
+  width: 100%;
+  z-index: 3; /*Para que aparezca encima de todo (que este por encima en el apilamiento)*/
+}
+/* Posición menu desplegable a la izquierda (podemos ponerlo al revés) */
+.posicionmenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+.contenedor {
+  width: 1115px;
+  margin: 0 auto; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+@media (max-width: 1250px) {
+  .contenedor {
+    width: 90%; } }
+
+
+/* Menu desplegable (Cambiar colores y fuentes)*/
+
+.main-navigation {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: #312C2C; /*Gris*/
+  opacity: 0.8; }
+  .main-navigation .main-navigation_ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3%;
+    border: 5px solid #FFFFFF;  /*blanco */
+    border-radius: 7px;
+    background-color: #c18f59;  /*beis*/ }
+    .main-navigation .main-navigation_ul li {
+      margin-bottom: 20px;
+      list-style: none; }
+    .main-navigation .main-navigation_ul a {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: 0.3s ease; }
+      .main-navigation .main-navigation_ul a:hover {
+        color: #777; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+  @media (max-width: 1150px) {
+    .main-navigation {
+      opacity: 0.94; } }
+
+/* Definicion estilo y forma de las barras del menu */
+.burger-container {
+  cursor: pointer;    /*que salga la manita al llegar el puntero a las barras*/
+  z-index: 3; }
+
+.bar1, .bar2, .bar3 {
+  width: 30px;
+  height: 3px;
+  background-color: #FFFFFF;
+  margin: 6px 0;
+  transition: 0.4s; }
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+  background-color: #c18f59; }
+
+.change .bar2 {
+  opacity: 0;
+  background-color: #c18f59; }
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-6px, -7px);
+  background-color: #c18f59; }
+
+.stop-scroll {
+  overflow: hidden; }
+
+/* Descripción del artista */
+.descripcion {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background-image: url("../images/fondo-concierto.jpg");
+  background-position: center;
+  background-size: cover; }
+
+  .descripcion .contenedor {
+    position: relative;
+    z-index: 1; }
+
+  .imagenartista {
+    height: 400px;  
+    width: 350px;
+  }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+  @media (max-width: 1600px) {
+    .descripcion {
+      padding-top: 180px; } }
+  @media (max-width: 1250px) {
+    .descripcion {
+      padding-top: 130px; } }
+  @media (max-width: 520px) {
+    .descripcion {
+      padding-top: 105px; } }
+  @media (min-width: 1600px) {
+    .descripcion {
+      min-height: 100vh; } }
+  @media (min-width: 1600px) {
+    .imagenartista {
+      min-height: 100vh; } }
+
+.descripc {
+  display: flex;
+  align-items: center; }
+  .descripc .texto {
+    margin-left: 54px; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+    @media (max-width: 1250px) {
+      .descripc .texto {
+        width: 35%; } }
+    @media (max-width: 768px) {
+      .descripc .texto {
+        width: 50%;
+        margin-left: 20px; } }
+    @media (max-width: 520px) {
+      .descripc .texto {
+        width: 65%;
+        margin-bottom: 20px;
+        margin-left: 0; } }
+    .descripc .texto p {
+      margin-bottom: 42px;
+      color: #777; }
+      @media (max-width: 768px) {
+        .descripc .texto p {
+          margin-bottom: 25px;
+          font-size: 14px; } }
+
+/* Estilo para el nombre de grupo!!!!! */
+  .descripc .nombregrupo {
+    font-size: 74px;
+    letter-spacing: 3px;
+    color: #FFFFFF; /* blanco */
+    font-family: "Calisto-MT-Bold"; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+    @media (max-width: 1250px) {
+      .descripc .nombregrupo {
+        font-size: 50px; } }
+    @media (max-width: 768px) {
+      .descripc .nombregrupo {
+        font-size: 35px; } }
+
+
+  .descripc .texto-up .nombregrupo {
+    margin-top: 15px; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+    @media (max-width: 768px) {
+      .descripc .texto-up .nombregrupo {
+        margin-top: 0; } }
+
+/* Estilo descripción del artista */
+  .descripc .texto-down {
+    margin-bottom: 20px;
+    padding-top: 10%; }
+    .descripc .texto-down .nombregrupo {
+      margin-bottom: 10px; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+      @media (max-width: 768px) {
+        .descripc .texto-down .nombregrupo {
+          margin-bottom: 0; } }
+
+.descripciongrupo {
+  font-size: 18px;
+  color: #FFFFFF; }
+
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+    @media (max-width: 1250px) {
+      .descripc {
+        width: 50%; }
+        .descripc img {
+          width: 100%; } }
+    @media (max-width: 520px) {
+      .descripc {
+        width: 65%;
+        margin-bottom: 20px; } }
+  @media (max-width: 520px) {
+    .descripc {
+      flex-direction: column; } }
+
+
+
+/* EVENTOOOOOS */
+
+.eventos {
+  margin-bottom: 30px; }
+  .eventos .estilo-h2 {
+    margin-bottom: 20px;
+    padding-bottom: 10px; }
+  .eventos {
+    text-align: center; }
+    .eventos {
+      font-size: 16px;
+      text-transform: none;
+      border-color: #c18f59; }
+      .eventos:hover {
+        border-color: #777; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */  
+  @media (max-width: 1250px) {
+    .eventos {
+      margin-bottom: 10px; } }
+
+.conjuntoevento {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 5px; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+  @media (max-width: 559px) {
+    .conjuntoevento {
+      justify-content: space-around; } }
+
+.eventosolo {
+  margin-bottom: 20px;
+  text-align: center; }
+  .eventosolo .eventosolo_img {
+    position: relative;
+    display: block;
+    font-size: 0; }
+    .eventosolo .eventosolo_img .eventosolo_download {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      transition: 0.3s ease; }
+      .eventosolo .eventosolo_img .eventosolo_download img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1; }
+      .imagenevento {
+        height: 250px;
+        width: 250px;
+      }
+    .eventosolo .eventosolo_img:hover .eventosolo_download {
+      visibility: visible;
+      opacity: 0.7; }
+  .eventosolo .eventosolo_nombre .eventosolo_fecha {
+    margin: 19px 0 18px;
+    font-size: 18px; }
+  .eventosolo {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    color: #c18f59; }
+
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+  @media (max-width: 1250px) {
+    .eventosolo {
+      margin-right: 10px; }
+      .eventosolo:last-child {
+        margin-right: 0; } }
+
+
+
+/* REDES SOCIALES */
+
+.redessociales {
+  position: relative;
+  padding: 63px 0;
+  background-image: url("../images/fondo-concierto.jpg");
+  background-size: cover;
+  background-position: center;
+  align-items: center; }
+  .redessociales::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #c18f59;
+    opacity: 0.7; }
+  .redessociales .contenedor {
+    position: relative;
+    z-index: 1; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+  @media (max-width: 620px) {
+    .redessociales {
+      padding: 40px 0; } }
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .social h5 {
+    font-size: 24px;
+    color: #fff; }
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */    
+  @media (max-width: 620px) {
+    .social {
+      flex-direction: column; 
+      align-items: center;} }
+
+.social-icons a {
+  position: relative;
+  border: 1px solid white;
+  border-radius: 70%;
+  padding: 13px 23px;
+  margin-right: 10px; }
+  .social-icons a:hover {
+    background-color: #777;
+    border-color: transparent; }
+  .icono {
+    width: 15px;
+    height: 15px;
+  }
+
+.social-icons img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /*poner en medio del circulo la imagen */
+}
+
+/* Media para hacerlo proporcional (Comprobar que funciona bien) :SSSS */
+@media (max-width: 620px) {
+  .social-icons {
+    margin: 35px 0; } }
+
+
+
+
+/* FOOTER */
+
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between; }
+  .footer-contenedor h5 {
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #fff; }
+
+
+  @media (max-width: 1250px) {
+    .footer-contenedor {
+      padding-bottom: 50px;
+      flex-direction: column;
+      align-items: center; } }
+
+
+.footer {
+  background-color: #2d2d2d; }
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between; }
+  .footer-contenedor p {
+    margin-top: 20px;
+    margin-bottom: 10px; 
+    color: #777; }
+
+
+  @media (max-width: 992px) {
+    .footer-contenedor {
+      flex-direction: column;
+      align-items: center; }
+      .footer-contenedor p {
+        font-size: 14px; } }

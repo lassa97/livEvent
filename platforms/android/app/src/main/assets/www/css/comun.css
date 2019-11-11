@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Megrim);
+
+.titulos_header{
+  padding-bottom:5px;
+  padding-top:10px;
+  font-size: 30px;
+  font-weight:bold;
+  max-width: 80%;
+
+}
+.menuestilo{
+	font-size:14px;
+	font-family: Arial;
+	color:yellow;
+	text-decoration: none;
+}
+.eventos-busqueda{
+  border: none !important;
+  background: none !important;
+}
+.navbar_eventos{
+  padding-right: 0px;
+  white-space:normal;
+  align-content: center;
+  max-height:45px;
+  border-left: none;
+  border-right: none;
+}
+.navbar_compartir{
+  padding-right: 0px;
+  max-height:45px;
+  white-space:normal;
+  color: whitesmoke!important;
+  background-color: #f40b16 !important;
+  border-right: none;
+}
+.titulomenu{
+  font-family: 'Megrim', cursive;
+  margin:3rem auto -2rem;
+  font-size:4rem;
+  letter-spacing:-2px;
+  color:#AC1313;
+  font-size: 50px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+.imagen-perfil{
+  width:94% !important;
+  height:100%!important;
+  border-radius: 50% !important;
+  margin-left: 1%;
+ }
+ .listview_no_border{
+  border:none !important;
+ }
+ .listview_no_side{
+  border-left:none !important;
+  border-right:none !important;
+ }
+ li.ui-first-child > a{
+   border:none !important;
+ }
+ /*li.ui-last-child > a{
+   border-bottom:none !important;
+ }*/

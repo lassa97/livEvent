@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+
+    <link rel="stylesheet" href="css/iconos_personalizados.css">
+    <link rel="stylesheet" type="text/css" href="css/Personalizado.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/comun.css">
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <title>Acceso</title>
+</head>
+<body>
+	<div data-role="page">
+	    <div data-role="main" class="ui-content">
+			<form class="formulario" name="formContacto" method="post" action="api/v1/event_create.php" ><br />
+
+				<label for="name">Nombre evento*:</label>
+				<input name="name" placeholder="Nombre evento" maxlength="50" class="required" /><br />
+
+				<label for="localization">Dirección del evento*:</label>
+				<input name="localization" placeholder="Dirección" class="required" /><br />
+
+				<label for="date"> Selecciona la fecha del evento:* </label>
+  				<input type="date" name="date" min="2019-11-01" max="2021-11-01" step="2" class="required">
+
+  				<label for="timestart"> Selecciona la hora de comienzo:* </label>
+  				<input type="time" name="horacomienzo" class="required">
+
+			    <label for="duration"> Selecciona la duración:* </label>
+  				<input type="time" name="duration" class="required">
+
+				<label for="description">Descripción del evento:*</label>
+				<textarea placeholder="Escribe una breve descripción  (200 caráteres)" maxlength="200" name="description"></textarea><br />
+
+				<label for="image">Subir imagen:</label>
+			    <input type="file" class="generosubir" accept="image/png, image/jpg, image/jpeg" maxlength="1024" name="image"><br />
+
+
+				<input class="acceder" type="submit" value="Crear" />
+			</form>
+		</div>
+	</div>
+
+
+</body>
+
+
+
+</html>

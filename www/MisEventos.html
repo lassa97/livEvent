@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+
+        <link rel="stylesheet" href="css/iconos_personalizados.css">
+    <link rel="stylesheet" type="text/css" href="css/Personalizado.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/comun.css">
+
+
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/funciones_generales.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+
+    </script>
+
+    <title>Eventos</title>
+</head>
+<body>
+  <div data-role="page" data-theme="d">
+
+    <!--MENU PARA PONER EN LAS PAGINAS-->
+    <div data-role="panel" id="leftpanel3" data-theme="b" data-position="left" data-display="overlay" class="ui-group-theme-b ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
+            <div class="ui-panel-inner" data-theme="b">
+                <h1 class="titulomenu">livEvent</h1>
+              <ul data-role="listview" data-inset="false" data-theme="b" style="margin-top: 30px;">
+
+                <li><a href="MisEventos.html" target="_top">
+                  <h2>Mis eventos</h2>
+                </a>
+                </li>
+
+                <li><a href="MisArtistas.html" target="_top">
+                  <h2>Mis artistas</h2>
+                </a>
+                </li>
+
+                <li><a href="Explorar.html" target="_top">
+                  <h2>Explorar</h2>
+                </a>
+                </li>
+
+                </li>
+                <li><a href="AccesoArtista.html" target="_top">
+                  <h2>Acceso artista</h2>
+                </a>
+                </li>
+              </ul>
+            </div>
+            <div style="position:fixed;bottom:0px;font-size:16px;width:inherit;text-align:right">
+                <a href="index.html">Soy artista</a>
+            </div>
+      </div>
+        <!--MENU PARA PONER EN LAS PAGINAS-->
+
+      <div data-role="header" data-theme="b">
+
+          <!--MENU PARA PONER EN LAS PAGINAS-->
+          <a style="background: none;border:none"href="#leftpanel3" class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Delete</a>
+          <!--MENU PARA PONER EN LAS PAGINAS-->
+
+            <h1 class="titulos_header">Mis eventos</h1>
+
+          <!--BUSCADOR PARA PONER EN LAS PAGINAS-->
+            <a style="background: none;border:none"href="Buscador.html" class="ui-btn-right ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-icon-search ui-btn-icon-notext"></a>
+      </div>
+  <div style="padding:0px" data-role="content" data-theme="b">
+    <div data-role="navbar">
+    	<ul>
+    		<li><a href="ListaEventos.html?flag=0&check=0"  target="eventos" >Pasados</a>
+        </li>
+    		<li><a href="ListaEventos.html?flag=1&check=0" target="eventos"   >Hoy</a></li>
+        <li><a href="ListaEventos.html?flag=2&check=0" target="eventos">Futuros</a></li>
+    	</ul>
+    </div>
+  </div>
+      <iframe  src="ListaEventos.html?flag=1&check=1" name="eventos" style="width:100%;height:90vh;overflow:hidden;border:none" >
+      </iframe>
+
+    </div>
+</body>
+
+</html>
