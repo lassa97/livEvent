@@ -25,6 +25,21 @@ div.box:hover {
   background-color:#F39090;
 }
 .redessociales{
-  width: 80px;
+  margin-top: 3px;
+  margin-left: 15px;
+  width: 50px;
   height: 50px;
+}
+
+.nombre{
+  margin-left:3%;
+}
+
+.fuenteartista{
+  font-family: Agency FB;
+  font-weight: bold;
+}
+
+.fuentedescripcion{
+  font-family: Agency FB;
 }

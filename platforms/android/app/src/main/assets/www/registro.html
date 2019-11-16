@@ -10,7 +10,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
 
 
-    		<link rel="stylesheet" type="text/php" href="php/registro.php" />
+        <link rel="stylesheet" href="themes/custom.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
   			<link rel="stylesheet" type="text/css" href="css/registro.css" />
     		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     		<script src="js/jquery-1.11.3.min.js"></script>
@@ -25,8 +26,8 @@
 
 				<label for="nombre">Nombre artista*:</label>
 				<input name="name" placeholder="Nombre artista" maxlength="50" class="required" /><br />
-			        
-				<label for="genero">Indique su género musical*:</label> 
+
+				<label for="genero">Indique su género musical*:</label>
 			    <select name="genero" id="genero" class="required" >
 			       <option value="Blues">Blues</option>
 			       <option value="Clásico">Clásico</option>
@@ -46,21 +47,21 @@
 			       <option value="Rock">Rock</option>
 			       <option value="Salsa">Salsa</option>
 			       <option value="Trap">Trap</option>
-			    </select> <br/> 
+			    </select> <br/>
 
 				<label for="mail">E-mail*:</label>
 				<input name="mail" placeholder="E-mail" class="required" /><br />
-			                
+
 				<label for="pass">Contraseña*:</label>
 				<input type="password" name="pass" class="required" /><br />
-			    
+
 				<label for="descripcion">Descripción:</label>
 				<textarea id="descripcon" placeholder="Escribe una breve descripción para tu perfil de artista (40 caráteres)" maxlength="60" name="descripcion"></textarea><br />
 
-				<label for="imagen">Subir imagen:</label> 
+				<label for="imagen">Subir imagen de perfil:</label>
 			    <input type="file" class="generosubir" accept="image/png, image/jpg, image/jpeg" maxlength="1024" name="imagen" id="imagen"><br />
 
-			    <label  for="Twitter">Redes Sociales: </label> 
+			    <label  for="Twitter">Redes Sociales: </label>
 			    <input type="text" name="Twitter" id="Twitter" placeholder="https://www.twitter.com/livevent" />
 
 			    <label for="Youtube"></label>
@@ -76,7 +77,7 @@
 			    <input type="text" name="Web" id="Web" placeholder="https://www.livevent.com" /><br />
 
 
-		<!-- <label for="genero">Género musical</label> 
+		<!-- <label for="genero">Género musical</label>
 	    <select name="genero" id="genero">
 	       <option value="Blues">Blues</option>
 	       <option value="Clásico">Clásico</option>
@@ -97,11 +98,11 @@
 	       <option value="Salsa">Salsa</option>
 	       <option value="Trap">Trap</option>
 	    </select> <br/> -->
-	  
-                
+
+
 
 				<input class="acceder" type="submit" value="Registrarse" />
-			</form> 
+			</form>
 		</div>
 	</div>
 

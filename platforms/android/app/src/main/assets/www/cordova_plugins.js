@@ -63,6 +63,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "cordova.plugins.notification.local.core",
         "plugin.notification.local.core"
       ]
+    },
+    {
+      "id": "cordova-plugin-awesome-shared-preferences.SharedPreferences",
+      "file": "plugins/cordova-plugin-awesome-shared-preferences/www/index.js",
+      "pluginId": "cordova-plugin-awesome-shared-preferences",
+      "clobbers": [
+        "window.plugins.SharedPreferences"
+      ]
+    },
+    {
+      "id": "cordova-clipboard.Clipboard",
+      "file": "plugins/cordova-clipboard/www/clipboard.js",
+      "pluginId": "cordova-clipboard",
+      "clobbers": [
+        "cordova.plugins.clipboard"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -72,6 +88,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-x-toast": "2.7.2",
     "cordova-plugin-device": "2.0.3",
     "cordova-plugin-badge": "0.8.8",
-    "cordova-plugin-local-notification": "0.9.0-beta.2"
+    "cordova-plugin-local-notification": "0.9.0-beta.2",
+    "cordova-plugin-awesome-shared-preferences": "0.1.0",
+    "cordova-clipboard": "1.3.0"
   };
 });

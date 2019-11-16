@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
+    <meta http-equiv="Content-Security-Policy" content="default-src * ; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data: *">
 
 
     <link rel="stylesheet" href="themes/custom.min.css" />
@@ -89,24 +89,24 @@
           </div>
           <div data-role="panel" id="popupsocial" data-theme="d" data-position="right" data-display="overlay" class="ui-group-theme-d ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
             <ul id="listado_social" data-role="listview" data-inset="false" data-theme="d"  data-icon="false" style="border:none" >
-              <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp')">
+              <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp',2)">
                   <img src="img/Iconos_compartir/whatsapp.png">
                   <h2>Whatsapp</h2>
                 </a>
               </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook')">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook',2)">
                  <img src="img/Iconos_compartir/Facebook.png">
                  <h2>Facebook</h2>
                </a>
                </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter')">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter',2)">
                  <img src="img/Iconos_compartir/Twitter.png">
                  <h2>Twitter</h2>
                </a>
                </li>
 
              <!-- Ver como le pongo que al pulsar salga el link-->
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('paste',2)">
                  <img src="img/Iconos_compartir/Link.png">
                  <h2>Copiar link</h2>
                </a>
