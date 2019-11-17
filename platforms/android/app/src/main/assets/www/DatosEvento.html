@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
+    <meta http-equiv="Content-Security-Policy" content="default-src * ; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data: *">
 
 
     <link rel="stylesheet" href="themes/custom.min.css" />
@@ -21,7 +21,7 @@
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/cordova.js"></script>
+
     <!--Esta no estaba-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5I0BgjiHAqIeLoiaOu6EeJhrv4QzXC74&libraries=places&callback=initMap&sensor=true" async defer></script>
       <!--Esta no estaba-->
@@ -50,7 +50,7 @@
 
           <div data-role="navbar" data-iconpos="left">
           	<ul style="font-size:15px">
-          		<li ><a id="1" class="navbar_eventos ui-shadow" data-icon="plus" >Seguir evento</a>
+          		<li ><a class="navbar_eventos ui-shadow" data-icon="plus" >Seguir evento</a>
               </li>
               <li><a href="#popupsocial" class="navbar_compartir ui-shadow" >Compartir evento</a></li>
           	</ul>
@@ -69,7 +69,7 @@
             <h3 class="titulos_listas" >Notificaciones (<span id="NNotificaciones">0</span>)</h3>
             <ul id="lista_notificaciones" data-role="listview" data-inset="true"  class="listview_no_border" >
             </ul>
-
+            <!-- MAPA para los eventos
               <h3 class="titulos_listas">Como llegar</h3>
 
                 <ul data-role="listview" data-inset="true"  class="listview_no_border">
@@ -82,31 +82,31 @@
                     <p>Pamplona</p>
                   </li>
                 </ul>
-
+-->
           </div>
           <div data-role="popup" id="popupPhotoPortrait" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
-             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-alt-icon">Close</a><img id="fotografia_evento" src="img/cartel_prueba.jpeg" alt="Fotografia evento">
+             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-alt-icon">Close</a><img id="fotografia_evento" alt="Fotografia evento">
           </div>
           <div data-role="panel" id="popupsocial" data-theme="d" data-position="right" data-display="overlay" class="ui-group-theme-d ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
             <ul id="listado_social" data-role="listview" data-inset="false" data-theme="d"  data-icon="false" style="border:none" >
-              <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp')">
+              <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp',2)">
                   <img src="img/Iconos_compartir/whatsapp.png">
                   <h2>Whatsapp</h2>
                 </a>
               </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook')">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook',2)">
                  <img src="img/Iconos_compartir/Facebook.png">
                  <h2>Facebook</h2>
                </a>
                </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter')">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter',2)">
                  <img src="img/Iconos_compartir/Twitter.png">
                  <h2>Twitter</h2>
                </a>
                </li>
 
              <!-- Ver como le pongo que al pulsar salga el link-->
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('paste',2)">
                  <img src="img/Iconos_compartir/Link.png">
                  <h2>Copiar link</h2>
                </a>
@@ -118,9 +118,9 @@
              <div style="padding:10px">link:<span>http://adasdasdasdsadasdasd</span></div>
           </div>
         </div>
-        <!--Esta no estaba-->
+        <!--Esta no estaba
         <script src="js/LocalizacionSeleccionar.js">  </script>
-          <!--Esta no estaba-->
+          Esta no estaba-->
         <script type="text/javascript" src="js/funciones_generales.js"></script>
         <script type="text/javascript" src="js/DatosEvento.js" ></script>
 

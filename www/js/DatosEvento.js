@@ -1,6 +1,7 @@
 
 
   let map;
+<<<<<<< HEAD
 
   // try{
   //   cordova.plugins.notification.local.schedule({
@@ -11,6 +12,18 @@
   // }catch( e){
   //   alert(e);
   // }
+=======
+/*
+  try{
+    cordova.plugins.notification.local.schedule({
+        title: 'My first notification',
+        text: 'Thats pretty easy...',
+        foreground: true
+    },{ skipPermission: true });
+  }catch( e){
+    alert(e);
+  }*/
+>>>>>>> c7e1785be7c3902481eb48f6a4b9ad8326749c43
 
   //---------------------------------------------------------------------------------------
   //
@@ -36,7 +49,7 @@
   function getids(){
     let url= document.URL;
     let variables1=url.split("?");
-    let evento_id=variables1[1].split("=")[1];
+    let evento_id=variables1[1].split("=")[1].split("#")[0];
     montar_cabecera(evento_id);
     //montar_cuerpo(evento_id);
   }
@@ -51,7 +64,7 @@
   function constructor_cabecera(Evento_nombre,room_name,date_event,image_event,evento_id){
 
       if(image_event===null){
-        image_event="img/cartel_prueba.jpeg";
+        image_event="img/cartel_defecto.jpeg";
       }
       document.getElementById("Cartel_concierto").style.backgroundImage="url("+image_event+")";
       document.getElementById("fotografia_evento").src=image_event;
@@ -73,14 +86,19 @@
   }
 
   function provisional(){
-    
+
+    try{
+    window.plugins.toast.showShortCenter('Opción en desarrollo', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+    }catch(e){
+      alert("Función no disponible aún.");
+    }
   }
 
 
   function constructor_artista(artista_id,nombre_artista,imagen_artista){
 
     if(imagen_artista===null){
-      imagen_artista="img/artista_prueba.jpeg";
+      imagen_artista="img/artist_default.jpeg";
     }
 
     let elemento=document.createElement("li");
@@ -95,8 +113,9 @@
 
     nombre.textContent=nombre_artista;
 
-    enlace.href="PaginaPerfilArtista.html?id="+artista_id;
-    enlace.href="perfil-artista.html?id"+artista_id;
+    enlace.href="PerfilArtista.html?id="+artista_id;
+    //enlace.href="perfil-artista.html?id"+artista_id;
+    enlace.target="_top";
     enlace.append(imagen);
     enlace.append(nombre);
 
@@ -128,23 +147,19 @@
 
   }
 
-  function constructor_notificaciones(id_artista,id_evento,titulo_notificacion,imagen_notificacion,fecha_notificacion){
+  function constructor_notificaciones(id_artista,id_evento,titulo_notificacion,imagen_notificacion,fecha_notificacion,id_notification){
 
     let lista_notificaciones=document.getElementById("lista_notificaciones");
     let notificacion=document.createElement("li");
     let notificacion_enlace=document.createElement("a");
     notificacion.classList.add("listview_no_border");
 
-    if(imagen_notificacion===null){
-      imagen_notificacion="img/cartel_prueba.jpeg";
-    }
-
-    notificacion_enlace.href="DatosNotificacion.html?artista="+id_artista+"&evento="+id_evento;
+    notificacion_enlace.href="DatosNotificacion.html?notificacion="+id_notification+"&evento="+id_evento+"&artista="+id_artista;
     notificacion_enlace.target="_top";
     notificacion_enlace.classList.add("listview_no_side");
 
-    let notificacion_imagen=document.createElement("img");
-    notificacion_imagen.src=imagen_notificacion;
+
+
 
     let notificacion_titulo=document.createElement("h4");
     notificacion_titulo.textContent=titulo_notificacion;
@@ -152,9 +167,15 @@
     let notificacion_fecha=document.createElement("p");
     notificacion_fecha.textContent=fecha_notificacion;
 
-    notificacion_enlace.append(notificacion_imagen);
+
     notificacion_enlace.append(notificacion_titulo);
     notificacion_enlace.append(notificacion_fecha);
+
+    if(imagen_notificacion!=null){
+      let notificacion_imagen=document.createElement("img");
+      notificacion_imagen.src=imagen_notificacion;
+      notificacion_enlace.append(notificacion_imagen);
+    }
 
     notificacion.append(notificacion_enlace);
     $('#lista_notificaciones').append(notificacion).listview('refresh');
@@ -180,9 +201,9 @@
                 //console.log(JSON.stringify(datos));
                 let datos_evento=datos['msg'];
                 constructor_cabecera(datos_evento['description'],datos_evento['localization'],datos_evento['date'],datos_evento['image'],id);
-                //montar_artista(datos_evento['artistID']);
                 constructor_tickets(null);
                 montar_notificaciones(datos_evento['artistID'],id);
+                montar_artista(datos_evento['artistID']);
             },error: function(error){
                 let reason_error=JSON.parse(JSON.stringify(error));
                 if(reason_error['readyState']===0){
@@ -201,11 +222,32 @@
 
   }
   function montar_artista(id){
+    console.log("va");
+    $.ajax({url: "https://livevent.es/api/v1/artist_list.php?artistID="+id,
+    success: function(result,status){
+                //document.getElementById("Artista_nombre").textContent=JSON.stringify(result);
+                let datos=JSON.parse(JSON.stringify(result));
+                let datos_artista=datos['msg'];
 
-  }
+                constructor_artista(id,datos_artista['name'],datos_artista['image']);
+
+            },error: function(error){
+
+                let reason_error=JSON.parse(JSON.stringify(error));
+                console.log(reason_error);
+                if(reason_error['readyState']===0){
+                  alert("No hay conexión a Internet");
+                  //Hacer una página web de mantenimiento/No internet
+                  //window.open()
+                }
+              }
+
+
+  });
+}
   function montar_notificaciones(id_artista,id_evento){
-    id_evento=parseInt(id_evento)
-    id_artista=parseInt(id_artista)
+    id_evento=parseInt(id_evento);
+    id_artista=parseInt(id_artista);
 
 
     $.post("https://livevent.es/api/v1/notification_list.php",{
@@ -215,8 +257,8 @@
         //console.log(status);
         if(status==="success"){
           let datos=JSON.parse(JSON.stringify(result));
-          let datos_notificaciones=datos['info']['info'];
-          document.getElementById("NNotificaciones").textContent=datos_notificaciones.length
+          let datos_notificaciones=datos['info']['notifications'];
+          document.getElementById("NNotificaciones").textContent=datos_notificaciones.length;
           if(datos_notificaciones.length==0){
             let lista_notificaciones=document.getElementById("lista_notificaciones");
             let notificacion=document.createElement("li");
@@ -231,9 +273,8 @@
             let contador_notificaciones=0;
             while(contador_notificaciones<(datos_notificaciones.length)){
               let datos_single=datos_notificaciones[contador_notificaciones];
-              console.log(datos_single);
-              //Hay que meter la fecha, que la descripcion puede ser eterna
-              constructor_notificaciones(id_artista,id_evento,datos_single['title'],datos_single['image'],datos_single['description'])
+              datos_single['notificationimage']=null;
+              constructor_notificaciones(id_artista,id_evento,datos_single['title'],datos_single['notificationimage'],datos_single['description'],datos_single['notificationID']);
               contador_notificaciones++;
 
             }
@@ -243,29 +284,7 @@
         }
     }
   );
-    /*
-    if(datos_notificaciones=="[]"){
-          let lista_notificaciones=document.getElementById("lista_notificaciones");
-          let notificacion=document.createElement("li");
-          let notificacion_titulo=document.createElement("h4");
-          notificacion_titulo.textContent="No hay notificaciones";
-          notificacion.append(notificacion_titulo);
-          lista_notificaciones.append(notificacion);
-    }else{
-      let lista_notificaciones=document.getElementById("lista_notificaciones");
-      if(lista_notificaciones.firstChild.textContent=="No hay notificaciones"){
-        lista_notificaciones.remove(lista_notificaciones.firstChild);
-      }else{
-        let contador=0;
-        while(contador<datos_notificaciones.length){
 
-          let datos_notificacion=datos_notificaciones[contador];
-          constructor_notificaciones(datos_notificacion['enlace'],datos_notificacion['titulo'],datos_notificacion['imagen'],datos_notificacion['fecha'])
-          contador++;
-        }
-      }
-    }
-*/
 
   }
 
@@ -394,3 +413,33 @@ function changeMap(lat, lon) {
 
 }
 */
+
+
+
+
+//Codigo que me sobra
+
+
+  /*
+  if(datos_notificaciones=="[]"){
+        let lista_notificaciones=document.getElementById("lista_notificaciones");
+        let notificacion=document.createElement("li");
+        let notificacion_titulo=document.createElement("h4");
+        notificacion_titulo.textContent="No hay notificaciones";
+        notificacion.append(notificacion_titulo);
+        lista_notificaciones.append(notificacion);
+  }else{
+    let lista_notificaciones=document.getElementById("lista_notificaciones");
+    if(lista_notificaciones.firstChild.textContent=="No hay notificaciones"){
+      lista_notificaciones.remove(lista_notificaciones.firstChild);
+    }else{
+      let contador=0;
+      while(contador<datos_notificaciones.length){
+
+        let datos_notificacion=datos_notificaciones[contador];
+        constructor_notificaciones(datos_notificacion['enlace'],datos_notificacion['titulo'],datos_notificacion['imagen'],datos_notificacion['fecha'])
+        contador++;
+      }
+    }
+  }
+  */

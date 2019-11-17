@@ -141,25 +141,48 @@ function resolveAfter(x,mili) {
 
 //-------------------------------------------------------------------------------
 //
-//Funcion para compartir el evento
+//Funcion para compartir el evento--> Hay que marcar red social y que tipo se quiere:
+//
+//  Tipo 1 = Notificar de que hay un artista en la aplicacion
+//  Tipo 2 = Notificar de que hay un evento en la aplicacion
 //
 //-------------------------------------------------------------------------------
-function share_media(red){
+function share_media(red,tipo){
 
-  let mensaje='¡Mira este concierto que he encontrado en livEvent!:';
-  let link=(document.URL).split("www/")[1];
-  let enlace='https://livevent.es/'+link;
-  enlace=document.URL;
+  try{
+    let mensaje
+
+  if(tipo==1){
+
+
+  mensaje='¡El artista '+artista_name+' está en la aplicación LivEvent!.¡Descargatela para android y siguelo!';
+
+  }
+  if(tipo==2){
+      let event_name=document.getElementById("Evento_nombre").textContent;
+      mensaje='¡El evento '+event_name+' está en la aplicación LivEvent!.¡Descargatela para android y siguelo!';
+  }
+  //let link=(document.URL).split("www/")[1];
+  //let enlace='https://livevent.es/'+link;
+  //enlace=document.URL;
 
   if(red=="twitter"){
-  window.plugins.socialsharing.shareViaTwitter(mensaje, null /* img */, enlace /*url*/);
+  window.plugins.socialsharing.shareViaTwitter(mensaje, null /* img */, null /*url*/);
   }else if (red=="facebook") {
-    window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(mensaje, null /* img */, enlace /* url */, 'Paste it dude!', function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
+    window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(mensaje, null /* img */, null /* url */, 'Fallo en el envio, mensaje copiado al portapapeles.', function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
   }else if (red=="whatsapp") {
-    window.plugins.socialsharing.shareViaWhatsApp(mensaje, null /* img */, enlace /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
-  }/*else if (red=="instagram"){
-    window.plugins.socialsharing.shareViaInstagram(mensaje, 'https://www.google.nl/images/srpr/logo4w.png', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})
-  }*/
+    window.plugins.socialsharing.shareViaWhatsApp(mensaje, null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
+  }else if(red=="paste"){
+    cordova.plugins.clipboard.copy(mensaje);
+    try{
+    window.plugins.toast.showShortCenter('Mensaje copiado al portapapeles.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+    }catch(e){
+      alert("Mensaje copiado al portapapeles.");
+    }
+  }
+}catch(e){
+  alert(e);
+}
 }
 //-------------------------------------------------------------------------------
 //
@@ -238,13 +261,28 @@ function sacar_fecha(event_date,tipo){
         break;
       }
     let hora;
-    if(tipo==1){
-      hora="- "+date.getHours()+":"+date.getMinutes();
-    }else{
-      hora="";
-    }
+    let minutos;
+    let hora_event;
 
-    return wdia+" "+date.getDate()+" "+mes+" "+date.getFullYear()+" "+hora;
+    if(tipo==1){
+      if(parseInt(date.getHours())<10){
+        hora="- 0"+date.getHours();
+        console.log(hora);
+      }else{
+        hora="- "+date.getHours();
+      }
+      if(date.getMinutes()<10){
+        minutos="0"+date.getMinutes();
+      }else{
+        minutos=date.getMinutes();
+      }
+      hora_event=hora+":"+minutos
+
+    }else{
+      hora_event="";
+    }
+    console.log(hora_event);
+    return wdia+" "+date.getDate()+" "+mes+" "+date.getFullYear()+" "+hora_event;
 }
 
 
