@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
 
     <link rel="stylesheet" href="css/follow.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -19,8 +19,8 @@
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
     <script src="js/funciones_generales.js"></script>
-    <script type="text/javascript" src="js/DatosArtista.js"></script>
     <script type="text/javascript" src="js/SocialSharing.js"></script>
     <title>Perfil Artista</title>
 </head>
@@ -28,7 +28,7 @@
     <div data-role="page">
 
       <div data-role="header" > 
-        <a style="background: none;border:none" onclick="window.history.back();" class="ui-btn ui-nodisc-icon  ui-corner-all ui-icon-arrow-l ui-btn-icon-notext"></a>
+        <a style="background: none;border:none" onclick="retroceso_artista();" class="ui-btn ui-nodisc-icon  ui-corner-all ui-icon-arrow-l ui-btn-icon-notext"></a>
       
       </div>
         <a href="#popupPhotoPortrait" data-rel="popup" data-position-to="window" class=" ui-shadow" data-transition="fade" >
@@ -90,7 +90,7 @@
           </div>
 
           <div style="margin-left:3%;margin-right:3%">
-            <h3 style="margin-top:0px;padding-top:8px">Eventos (<span id="NEventos">0</span>)</h3>
+            <h3 style="margin-top:0px;padding-top:8px; color:red;">Eventos (<span id="NEventos">0</span>)</h3>
               <ul id="lista_eventos" data-role="listview" data-inset="false" class="listview_no_border">
                 <!--  <li>
                         <a href="datos-evento.html" target="_top">
@@ -100,9 +100,9 @@
                       </li> -->
               </ul>  
           </div>
-
+        </br>
           <div style="margin-left:3%;margin-right:3%">  
-            <h3 style="margin-top:0px;padding-top:8px">Redes Sociales</h3>
+            <h3 style="margin-top:0px;padding-top:8px;color:red;">Redes Sociales</h3>
               <ul id="lista_redessociales" data-role="listview" data-inset="false" class="listview_no_border">
                 <!--  <li>
                         <a href="#" id="facebook" target="_blank">
@@ -114,9 +114,13 @@
           </div>
 
         <div data-role="popup" id="popupPhotoPortrait" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
-           <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/artista_prueba.jpg" alt="Photo portrait">  <!-- IMAGEN ARTISTA API -->
+           <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img id="fotografia_artista" alt="Fotografía artista">  <!-- IMAGEN ARTISTA API -->
         </div>
       </div>
+
+
+<script type="text/javascript" src="js/DatosArtistas.js"></script>
+
 
 </body>
 

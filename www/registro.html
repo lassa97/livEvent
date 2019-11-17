@@ -7,28 +7,28 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
 
 
         <link rel="stylesheet" href="themes/custom.min.css" />
         <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-  			<link rel="stylesheet" type="text/css" href="css/registro.css" />
-    		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-    		<script src="js/jquery-1.11.3.min.js"></script>
-    		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-    		<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+  		<link rel="stylesheet" type="text/css" href="css/registro.css" />
+    	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    	<script src="js/jquery-1.11.3.min.js"></script>
+    	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    	<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <title>Acceso</title>
 </head>
 <body>
 	<div data-role="page">
 	    <div data-role="main" class="ui-content">
-			<form class="formulario" name="formContacto" method="post" action="registro.php" ><br />
+			<form class="formulario" id="formArtista" name="formContacto" method="post" action="https://livevent.es/api/v1/artist_create.php"><br />
 
-				<label for="nombre">Nombre artista*:</label>
-				<input name="name" placeholder="Nombre artista" maxlength="50" class="required" /><br />
+				<label for="name">Nombre artista*:</label>
+				<input type="text" name="name" placeholder="Nombre artista" maxlength="50" required /><br />
 
-				<label for="genero">Indique su género musical*:</label>
-			    <select name="genero" id="genero" class="required" >
+				<label for="gender">Indique su género musical*:</label>
+			    <select name="gender" class="required" >
 			       <option value="Blues">Blues</option>
 			       <option value="Clásico">Clásico</option>
 			       <option value="Country">Country</option>
@@ -49,32 +49,32 @@
 			       <option value="Trap">Trap</option>
 			    </select> <br/>
 
-				<label for="mail">E-mail*:</label>
-				<input name="mail" placeholder="E-mail" class="required" /><br />
+				<label for="email">E-mail*:</label>
+				<input type="text" name="email" placeholder="E-mail" class="required" required /><br />
 
-				<label for="pass">Contraseña*:</label>
-				<input type="password" name="pass" class="required" /><br />
+				<label for="password">Contraseña*:</label>
+				<input type="password" name="password" required /><br />
 
-				<label for="descripcion">Descripción:</label>
-				<textarea id="descripcon" placeholder="Escribe una breve descripción para tu perfil de artista (40 caráteres)" maxlength="60" name="descripcion"></textarea><br />
+				<label for="description">Descripción:</label>
+				<textarea  placeholder="Escribe una breve descripción para tu perfil de artista (40 caráteres)" maxlength="60" name="description"></textarea><br />
 
-				<label for="imagen">Subir imagen de perfil:</label>
-			    <input type="file" class="generosubir" accept="image/png, image/jpg, image/jpeg" maxlength="1024" name="imagen" id="imagen"><br />
+				<label for="image">Subir imagen de perfil:</label>
+			    <input type="file" accept="image/png, image/jpg, image/jpeg" name="image" ><br />
 
-			    <label  for="Twitter">Redes Sociales: </label>
-			    <input type="text" name="Twitter" id="Twitter" placeholder="https://www.twitter.com/livevent" />
+			    <label  for="twitter">Redes Sociales: </label>
+			    <input type="text" name="twitter" placeholder="livevent" />
 
-			    <label for="Youtube"></label>
-			    <input type="text" name="Youtube" id="Youtube" placeholder="https://www.youtube.com/livevent" />
+			    <label for="youtube"></label>
+			    <input type="text" name="youtube" placeholder="livevent" />
 
-			    <label for="Facebook"></label>
-			    <input type="text" name="Facebook" id="Facebook" placeholder="https://www.facebook.com/livevent" />
+			    <label for="facebook"></label>
+			    <input type="text" name="facebook"  placeholder="livevent" />
 
-			    <label for="Instagram"></label>
-			    <input type="text" name="Instagram" id="Instagram" placeholder="https://www.instagram.com/livevent" />
+			    <label for="instagram"></label>
+			    <input type="text" name="instagram"  placeholder="livevent" />
 
-			    <label for="Web"></label>
-			    <input type="text" name="Web" id="Web" placeholder="https://www.livevent.com" /><br />
+			    <label for="webpage"></label>
+			    <input type="text" name="webpage" placeholder="livevent.com" /><br />
 
 
 		<!-- <label for="genero">Género musical</label>
@@ -101,10 +101,40 @@
 
 
 
-				<input class="acceder" type="submit" value="Registrarse" />
+				<input type="submit" value="Registrarse" href="https://livevent.es/index.html" />
 			</form>
 		</div>
 	</div>
+	
+
+	<h2 id="mensaje"></h2>
+
+
+<script>
+	$(document).ready(function()
+{ 
+   
+   $.post("https://livevent.es/api/v1/artist_create.php", $("#formArtista").serialize())
+    .done(function(data){
+    document.getElementById("mensaje")=data;
+   });
+   
+   
+    return false;
+   });
+  
+  else
+  {
+   $(document.getElementById("mensaje").html('');
+  }
+ 
+</script>
+
+
+
+
+
+
 
 
 </body>

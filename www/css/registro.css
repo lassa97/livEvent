@@ -12,16 +12,6 @@
 	margin-bottom: 200px;
 }
 
-.acceder{
-
-}
-
-.acceder:hover{
-	background-color: #79E579;
-	border-color: #126012;
-
-}
-
 .menuestilo{
 	font-size:14px;
 	font-family: Arial;
@@ -59,4 +49,5 @@ li a:hover {
   margin-bottom: 25px;
   font-weight: bold;
 }
+
 

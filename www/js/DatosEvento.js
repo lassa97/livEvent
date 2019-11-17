@@ -2,15 +2,15 @@
 
   let map;
 
-  try{
-    cordova.plugins.notification.local.schedule({
-        title: 'My first notification',
-        text: 'Thats pretty easy...',
-        foreground: true
-    },{ skipPermission: true });
-  }catch( e){
-    alert(e);
-  }
+  // try{
+  //   cordova.plugins.notification.local.schedule({
+  //       title: 'My first notification',
+  //       text: 'Thats pretty easy...',
+  //       foreground: true
+  //   },{ skipPermission: true });
+  // }catch( e){
+  //   alert(e);
+  // }
 
   //---------------------------------------------------------------------------------------
   //

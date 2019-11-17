@@ -10,19 +10,16 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
 
 
+        <link rel="stylesheet" type="text/php" href="php/registro.php" />
         <link rel="stylesheet" type="text/css" href="css/registro.css" />
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-        <link rel="stylesheet" href="themes/custom.min.css" />
-        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-        <link rel="stylesheet" href="css/DatosEvento.css">
-        <link rel="stylesheet" href="css/comun.css">
-        <link rel="stylesheet" href="css/LocalizacionSeleccionar.css">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
         <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
 
     <title>Encuestas</title>
 </head>
@@ -33,7 +30,7 @@
 
   <div data-role="page">
     <div data-role="main" class="ui-content">
-      <form class="formulario" name="formContacto" method="post" action="api/v1/encuesta.php" ><br />
+      <form class="formulario" name="formContacto" method="post" action="https://livevent.es/api/v1/survey_create.php" ><br />
 
       <label for="score" class="control-label"><p class="encuesta">¿Qué te ha parecido el concierto?</p></label>
       <input name="score" class="rating rating-loading" value="2.5" data-min="0" data-max="5" data-step="0.5" data-size="lg"><br />
@@ -48,10 +45,10 @@
       <input id="atencion" name="atencion" class="rating rating-loading" value="3" data-min="0" data-max="5" data-step="0.5" data-size="lg"><br />
 
       <label for="satisfaccion"><p class="encuesta">Satisfacción total:</p></label>
-      <input type="range" name="satisfaccion" id="satisfaccion" min="0" max="100" value="50"><br />
+      <input type="range" name="satisfaccion" id="satisfaccion" min="0" max="100" value="50"><br />-->
 
-      <label for="comments"><p class="encuesta">Comentarios:</p></label>
-      <input type="text" name="comments" maxlength="200" placeholder="Añada sus comentarios" maxlength="50"><br /> -->
+      <label for="opinion"><p class="encuesta">Breve opinión:</p></label>
+      <input type="text" name="opinion" maxlength="200" placeholder="Añada sus comentarios" maxlength="50"><br /> 
 
       <input class="acceder" type="submit" value="Enviar" />
       </form>
