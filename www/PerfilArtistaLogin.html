@@ -46,17 +46,18 @@
 
             <div data-role="navbar" data-iconpos="left">
               <ul style="font-size:15px">
-                <li ><a class="navbar_artistas ui-shadow" data-icon="plus" onclick="seguir_artista();"  >Seguir artista</a> <!--funcionesgenerales.js-->
+                <li class="nodisplay"><a class="navbar_artistas ui-shadow" ></a> 
                 </li>
-                <li><a href="#popupsocial" class="navbar_compartir ui-shadow" >Compartir artista</a></li>
+                
               </ul>
-            </div>
+            </div> 
 
 
             <div data-role="popup" id="popupPhotoPortrait" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
                <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-alt-icon">Close</a><img id="fotografia_artista" alt="Fotografía artista">
             </div>
-            <div data-role="panel" id="popupsocial" data-theme="d" data-position="right" data-display="overlay" class="ui-group-theme-d ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
+
+            <!--<div data-role="panel" id="popupsocial" data-theme="d" data-position="right" data-display="overlay" class="ui-group-theme-d ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
             <ul id="listado_social" data-role="listview" data-inset="false" data-theme="d"  data-icon="false" style="border:none" >
               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp')">
                   <img src="img/Iconos_compartir/whatsapp.png">
@@ -74,14 +75,14 @@
                </a>
                </li>
 
-             <!-- Ver como le pongo que al pulsar salga el link-->
+             
                <li class="listitem" style="border:none" ><a style="border:none" data-icon="false">
                  <img src="img/Iconos_compartir/Link.png">
                  <h2>Copiar link</h2>
                </a>
                </li>
              </ul>
-          </div>
+          </div>-->
           <div data-role="popup" id="popuplink" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
              <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-alt-icon">Close</a>
              <div style="padding:10px">link:<span>http://adasdasdasdsadasdasd</span></div>

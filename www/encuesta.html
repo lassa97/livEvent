@@ -10,16 +10,16 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
 
 
-        <link rel="stylesheet" type="text/php" href="php/registro.php" />
         <link rel="stylesheet" type="text/css" href="css/registro.css" />
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>
-        <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/star-rating.min.css" />
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile.nestedlists.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/star-rating.min.js"></script>
+        
 
     <title>Encuestas</title>
 </head>
@@ -32,8 +32,12 @@
     <div data-role="main" class="ui-content">
       <form class="formulario" name="formContacto" method="post" action="https://livevent.es/api/v1/survey_create.php" ><br />
 
-      <label for="score" class="control-label"><p class="encuesta">¿Qué te ha parecido el concierto?</p></label>
-      <input name="score" class="rating rating-loading" value="2.5" data-min="0" data-max="5" data-step="0.5" data-size="lg"><br />
+
+      <label for="score"><p class="encuesta">Satisfacción total:</p></label>
+      <input type="range" name="score" id="score" min="0" max="10" value="5"><br />
+
+      <!--<label for="score" class="control-label"><p class="encuesta">¿Qué te ha parecido el concierto?</p></label>
+      <input name="score" class="rating rating-loading" value="2.5" data-min="0" data-max="5" data-step="0.5" data-size="lg"><br />-->
 <!--
       <label for="repertorio" class="control-label"><p class="encuesta">Temática y repertorio:</p></label>
       <input id="repertorio" name="repertorio" class="rating rating-loading" value="3" data-min="0" data-max="5" data-step="0.5" data-size="lg"><br />
