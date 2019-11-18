@@ -11,8 +11,8 @@ function constructor_encuesta(survey_id,survey_image,survey_name,survey_descript
   let encuesta_enlace=document.createElement("a");
   encuesta.classList.add("listview_no_border");
 
-  encuesta_enlace.href="DatosNotificacion.html?notificacion="+survey_id;
-  encuesta_enlace.target="_top";
+  encuesta_enlace.href="DatosEncuesta.html?Encuesta="+survey_id;
+  encuesta_enlace.target="_self";
   encuesta_enlace.classList.add("listview_no_side");
 
   let encuesta_titulo=document.createElement("h4");

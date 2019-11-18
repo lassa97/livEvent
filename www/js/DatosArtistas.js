@@ -59,7 +59,7 @@
   function constructor_redessociales(twitter_artista,facebook_artista,instagram_artista,youtube_artista,webpage_artista){
 
     if(twitter_artista===null){
-      
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -84,10 +84,10 @@
       $('#lista_redessociales').append(redsocial).listview("refresh");
     }
 
-    
+
 
     if(instagram_artista===null){
-        
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -113,7 +113,7 @@
     }
 
     if(youtube_artista===null){
-        
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -140,7 +140,7 @@
 
 
     if(webpage_artista===null){
-        
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -207,7 +207,7 @@
   function montar_cabecera(id){
     //ASINCRONO
     //event_data
-    console.log(id);
+    //console.log(id);
     $.ajax({url: "http://livevent.es/api/v1/artist_list.php?artistID="+id,
     success: function(result,status){
                 //document.getElementById("Artista_nombre").textContent=JSON.stringify(result);
@@ -234,7 +234,7 @@
 
 
   }
-  
+
   function montar_eventos(id){
     //SINCRONO
     console.log(id);
@@ -243,7 +243,7 @@
   $.ajax({url: "https://livevent.es/api/v1/event_list.php?artistID="+id,
    success: function(result,status){
         //console.log(status);
-       
+
           let datos=JSON.parse(JSON.stringify(result));
           console.log(datos);
           let datos_eventos=datos['msg']['events'];
@@ -252,12 +252,12 @@
           if(datos_eventos.length==0){
             let lista_eventos=document.getElementById("lista_eventos");
             let evento=document.createElement("li");
-            
+
             evento.textContent="No hay eventos programados";
             evento.classList.add("listview_no_border");
-            
+
             $("#lista_eventos").append(evento).listview("refresh");
-            
+
           }else{
             let contador_eventos=0;
             while(contador_eventos<(datos_eventos.length)){
@@ -269,15 +269,15 @@
               contador_eventos++;
 
             }
-            
+
 
 
           }
           montar_redessociales(id);
-        
+
     }
   });
-    
+
   function montar_redessociales(id){
     //ASINCRONO
     console.log(id);
@@ -285,10 +285,10 @@
     success: function(result,status){
               let datos=JSON.parse(JSON.stringify(result));
               let datos_artista=datos['msg'];
-              
-              constructor_redessociales(datos_artista['twitter'],datos_artista['facebook'],datos_artista['instagram'],datos_artista['youtube'],datos_artista['webpage']);        
+
+              constructor_redessociales(datos_artista['twitter'],datos_artista['facebook'],datos_artista['instagram'],datos_artista['youtube'],datos_artista['webpage']);
           },
-    
+
 
   });
     }

@@ -20,15 +20,15 @@
     <title>Acceso</title>
 </head>
 <body>
-	<div data-role="page">
+	<div data-role="page" data-theme="d">
 	    <div data-role="main" class="ui-content">
-			<form class="formulario" id="formArtista" name="formContacto" method="post" action="https://livevent.es/api/v1/artist_create.php"><br />
+			<form class="formulario" id="formArtista" name="formContacto"><br />
 
 				<label for="name">Nombre artista*:</label>
-				<input type="text" name="name" placeholder="Nombre artista" maxlength="50" required /><br />
+				<input id="name" type="text" name="name" placeholder="Nombre artista" maxlength="50" required /><br />
 
 				<label for="gender">Indique su género musical*:</label>
-			    <select name="gender" class="required" >
+			    <select id="gender" name="gender" class="required" >
 			       <option value="Blues">Blues</option>
 			       <option value="Clásico">Clásico</option>
 			       <option value="Country">Country</option>
@@ -50,31 +50,33 @@
 			    </select> <br/>
 
 				<label for="email">E-mail*:</label>
-				<input type="text" name="email" placeholder="E-mail" class="required" required /><br />
+				<input id="email" type="email" name="email" placeholder="E-mail" class="required" required /><br />
 
 				<label for="password">Contraseña*:</label>
-				<input type="password" name="password" required /><br />
+				<input id="password" type="password" name="password" required /><br />
 
 				<label for="description">Descripción:</label>
-				<textarea  placeholder="Escribe una breve descripción para tu perfil de artista (40 caráteres)" maxlength="60" name="description"></textarea><br />
+				<textarea id="description" placeholder="Escribe una breve descripción para tu perfil de artista (40 caráteres)" maxlength="60" name="description"></textarea><br />
 
 				<label for="image">Subir imagen de perfil:</label>
-			    <input type="file" accept="image/png, image/jpg, image/jpeg" name="image" ><br />
+        <div>
+			    <input id="imagen" type="file" accept="image/png, image/jpg, image/jpeg" name="image" value="null"><br />
+        </div>
 
 			    <label  for="twitter">Redes Sociales: </label>
-			    <input type="text" name="twitter" placeholder="livevent" />
+			    <input id="twitter" type="text" name="twitter" placeholder="livevent" />
 
 			    <label for="youtube"></label>
-			    <input type="text" name="youtube" placeholder="livevent" />
+			    <input id="youtube" type="text" name="youtube" placeholder="livevent" />
 
 			    <label for="facebook"></label>
-			    <input type="text" name="facebook"  placeholder="livevent" />
+			    <input id="facebook" type="text" name="facebook"  placeholder="livevent" />
 
 			    <label for="instagram"></label>
-			    <input type="text" name="instagram"  placeholder="livevent" />
+			    <input id="instagram" type="text" name="instagram"  placeholder="livevent" />
 
 			    <label for="webpage"></label>
-			    <input type="text" name="webpage" placeholder="livevent.com" /><br />
+			    <input id="webpage" type="text" name="webpage" placeholder="livevent.com" /><br />
 
 
 		<!-- <label for="genero">Género musical</label>
@@ -101,44 +103,34 @@
 
 
 
-				<input type="submit" value="Registrarse" href="https://livevent.es/index.html" />
+				<input type="button" value="Registrarse" onclick="registro_artista();"/>
 			</form>
 		</div>
 	</div>
-	
+  <script src="js/Registro_Login.js"></script>
+  <script src="js/funciones_generales.js"></script>
 
-	<h2 id="mensaje"></h2>
 
 
+<!--
 <script>
 	$(document).ready(function()
-{ 
-   
+{
+
    $.post("https://livevent.es/api/v1/artist_create.php", $("#formArtista").serialize())
     .done(function(data){
     document.getElementById("mensaje")=data;
    });
-   
-   
+
+
     return false;
    });
-  
+
   else
   {
    $(document.getElementById("mensaje").html('');
   }
- 
-</script>
 
-
-
-
-
-
-
-
+</script>-->
 </body>
-
-
-
 </html>

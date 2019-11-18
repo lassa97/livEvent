@@ -4,8 +4,8 @@
 .formulario{
 	font-size: 15;
 	font-family: Agency FB;
-	height: 1500px;
-	
+	/*height: 1500px;*/
+
 }
 
 .genero{
@@ -15,7 +15,7 @@
 .menuestilo{
 	font-size:14px;
 	font-family: Arial;
-	color:yellow; 
+	color:yellow;
 	text-decoration: none;
 }
 h2{
@@ -49,5 +49,3 @@ li a:hover {
   margin-bottom: 25px;
   font-weight: bold;
 }
-
-
