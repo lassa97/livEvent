@@ -7,7 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
+  <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
 
     <link rel="stylesheet" href="themes/custom.min.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -51,7 +51,7 @@
                 </a>
                 </li>
               -->
-                <li><a onclick="location.reload();">
+                <li><a href="PerfilArtistaLogin.html" target="_top">
                   <h2>Mi perfil</h2>
                 </a>
                 </li>
@@ -59,19 +59,14 @@
                   <h2>Crear evento</h2>
                 </a>
                 </li>
-                <li><a href="MisEncuestas.html" target="_top">
+                <li><a href="EncuestaEvento.html" target="_top">
                   <h2>Crear encuesta</h2>
                 </a>
                 </li>
-                <li><a href="Explorar.html" target="_top">
-                  <h2>Explorar</h2>
+                <li><a onclick="logout();" target="_top">
+                  <h2>Desconectarse</h2>
                 </a>
                 </li>
-                <li><a href="MisEncuestas.html" target="_top">
-                  <h2>Encuestas</h2>
-                </a>
-                </li>
-
               </ul>
             </div>
             <!--
@@ -87,7 +82,7 @@
           <a style="background: none;border:none"href="#leftpanel3" class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Delete</a>
           <!--MENU PARA PONER EN LAS PAGINAS-->
 
-            <h1 class="titulos_header">CREACIÓN</h1>
+            <h1 class="titulos_header">Crear evento</h1>
 
       </div>
   <div style="padding:0px" data-role="content" data-theme="b">
@@ -105,6 +100,7 @@
       </iframe>
 
     </div>
+      <script type="text/javascript" src="js/funciones_generales.js"></script>
 </body>
 
 </html>

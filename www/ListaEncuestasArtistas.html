@@ -21,14 +21,13 @@
 </head>
 <body>
   <div data-role="page" data-theme="d">
-     <div  data-role="main" class="ui-content">
-       <ul id="lista_encuestas" data-role='listview' data-inset='false' data-theme='d'  data-filter='false' >
-       </ul>
-     </div>
-
-  </div>
+    <div data-role="content">
+      <h3 class="titulos_listas">Selecciona el evento para la encuesta (<span id="NEventos">0</span>)</h3>
+        <ul id="lista_eventos" data-role="listview" data-inset="true" class="listview_no_border">
+        </ul>
+    </div>
        <script type="text/javascript" src="js/funciones_generales.js"></script>
-       <script type="text/javascript" src="js/ListaEncuestas.js"></script>
+       <script type="text/javascript" src="js/EncuestaEvento.js"></script>
 </body>
 
 </html>

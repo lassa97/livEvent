@@ -25,7 +25,8 @@
     <feature name="Badge">
         <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
     </feature>
-    <name>HelloCordova</name>
+    <name>LivEvent</name>
+    <icon src="logo.png" />
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

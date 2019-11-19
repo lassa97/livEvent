@@ -101,6 +101,7 @@ function registro_artista(){
   }
 }
 //Funcion para coger datos de login
+console.log("HOLA");
 function login_artista(){
 
   let email_artista=document.getElementById("email").value;
@@ -186,24 +187,7 @@ function enviar_datos_login(datos_post){
             alert('Email o contraseña incorrectas.');
           }
         }else{
-            console.log(datos);
-          try{
-
-            let sharedPreferences = window.plugins.SharedPreferences.getInstance();
-            let value=datos['artistID'];
-            let key = 'id_artista';
-            let successCallback = function(value) {
-                window.open("PerfilArtistaLogin.html?id="+datos['artistID'],"_top");
-              }
-            let errorCallback = function(err) {
-                alert(err);
-            }
-
-          sharedPreferences.put(key,value, successCallback, errorCallback)
-          }catch(e){
-            alert(e);
-          }
-
+          window.open("PerfilArtistaLogin.html","_self");
         }
         /*
         if(datos['msg']=="Artista creado correctamente"){
@@ -217,9 +201,9 @@ function enviar_datos_login(datos_post){
           */
         }else{
           try{
-          window.plugins.toast.showShortCenter('Error al conectarse', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+          window.plugins.toast.showShortCenter('Email/Nombre ya en uso', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
           }catch(e){
-            alert('Error al conectarse');
+            alert('Email/Nombre ya en uso');
           }
         }
 

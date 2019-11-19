@@ -56,10 +56,10 @@
 
 
 
-  function constructor_redessociales(artista_id,nombre_artista,twitter_artista,youtube_artista,facebook_artista,instagram_artista,webpage_artista){
+  function constructor_redessociales(twitter_artista,facebook_artista,instagram_artista,youtube_artista,webpage_artista){
 
     if(twitter_artista===null){
-      
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -84,34 +84,10 @@
       $('#lista_redessociales').append(redsocial).listview("refresh");
     }
 
-    if(facebook_artista===null){
-        
-    }else{
 
-      let redsocial=document.createElement("li");
-      let enlace=document.createElement("a");
-      let nombre=document.createElement("h4");
-
-      let imagen=document.createElement("img");
-      imagen.classList.add("redessociales");
-      imagen.href="https://www.facebook.com/"+facebook_artista;
-      imagen.target="_blank"
-      imagen.src="img/facebook.png";
-
-      nombre.textContent="Facebook";
-
-      enlace.href="https://www.facebook.com/"+facebook_artista;
-      enlace.target="_blank"
-      enlace.append(imagen);
-      enlace.append(nombre);
-
-      redsocial.append(enlace);
-
-      $('#lista_redessociales').append(redsocial).listview("refresh");
-    }
 
     if(instagram_artista===null){
-        
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -137,7 +113,7 @@
     }
 
     if(youtube_artista===null){
-        
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -164,7 +140,7 @@
 
 
     if(webpage_artista===null){
-        
+
     }else{
 
       let redsocial=document.createElement("li");
@@ -231,7 +207,7 @@
   function montar_cabecera(id){
     //ASINCRONO
     //event_data
-    console.log(id);
+    //console.log(id);
     $.ajax({url: "http://livevent.es/api/v1/artist_list.php?artistID="+id,
     success: function(result,status){
                 //document.getElementById("Artista_nombre").textContent=JSON.stringify(result);
@@ -258,34 +234,34 @@
 
 
   }
-  
+
   function montar_eventos(id){
     //SINCRONO
     console.log(id);
 
 
-    $.post("http://livevent.es/api/v1/event_list.php?artistID="+id,{
-      artistID: id,
-      msg: msg
-    },function(result,status){
+  $.ajax({url: "https://livevent.es/api/v1/event_list.php?artistID="+id,
+   success: function(result,status){
         //console.log(status);
-        if(status==="success"){
+
           let datos=JSON.parse(JSON.stringify(result));
-          console.log(result);
-          let datos_eventos=datos['info']['info'];
-          document.getElementById("NEventos").textContent=datos_eventos.length
+          console.log(datos);
+          let datos_eventos=datos['msg']['events'];
+          console.log(datos_eventos);
+          document.getElementById("NEventos").textContent=datos_eventos.length;
           if(datos_eventos.length==0){
             let lista_eventos=document.getElementById("lista_eventos");
             let evento=document.createElement("li");
-            
+
             evento.textContent="No hay eventos programados";
             evento.classList.add("listview_no_border");
-            
+
             $("#lista_eventos").append(evento).listview("refresh");
-            montar_redessociales(id);
+
           }else{
             let contador_eventos=0;
             while(contador_eventos<(datos_eventos.length)){
+              console.log('ok');
               let datos_single=datos_eventos[contador_eventos];
               console.log(datos_single);
 
@@ -293,25 +269,26 @@
               contador_eventos++;
 
             }
-            montar_redessociales(id);
+
 
 
           }
-        }
+          montar_redessociales(id);
+
     }
-  );
-    
+  });
+
   function montar_redessociales(id){
     //ASINCRONO
     console.log(id);
-    $.ajax({url: "http://livevent.es/api/v1/artist_list.php?artistID="+id,
+    $.ajax({url: "https://livevent.es/api/v1/artist_list.php?artistID="+id,
     success: function(result,status){
               let datos=JSON.parse(JSON.stringify(result));
               let datos_artista=datos['msg'];
-              
-              constructor_cabecera(id,datos_artista['name'],datos_artista['twitter'],datos_artista['youtube'],datos_artista['faceook'],datos_artista['instagram'],datos_artista['webpage']);        
+
+              constructor_redessociales(datos_artista['twitter'],datos_artista['facebook'],datos_artista['instagram'],datos_artista['youtube'],datos_artista['webpage']);
           },
-    
+
 
   });
     }

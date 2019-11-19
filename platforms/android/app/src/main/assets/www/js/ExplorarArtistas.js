@@ -4,23 +4,7 @@
 //
 //---------------------------------------------------------------------------------------
 
-
-getids();
-
-function getids(){
-
-  /*let url= document.URL;
-  let variables1=url.split("?");
-
-  let variables_2=variables1[1].split("=");
-  let flag=variables_2[1].split("&")[0];
-
-  let check=variables_2[2];*/
-
-
-  getArtist();
-
-}
+getArtist();
 
 //---------------------------------------------------------------------------------------
 //

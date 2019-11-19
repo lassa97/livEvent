@@ -7,8 +7,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
-
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
 
   			<link rel="stylesheet" type="text/css" href="css/registro.css" />
         <link rel="stylesheet" href="themes/custom.min.css" />
@@ -25,22 +24,20 @@
     <title>Acceso</title>
 </head>
 <body>
-	<div data-role="page" >
+	<div data-role="page" data-theme="d">
 	    <div data-role="main" class="ui-content">
-			<form class="formulario" name="formContacto" method="post" action="login.php" ><br />
+			<form class="formulario" name="formContacto" method="post" action="https://livevent.es/api/v1/login_artist.php" ><br />
 
-				<label for="mail">E-mail*:</label>
-				<input name="mail" placeholder="E-mail" class="required" /><br />
+				<label for="email">E-mail*:</label>
+				<input id="email" name="email" placeholder="E-mail" class="required" /><br />
 
-				<label for="pass">Contraseña*:</label>
-				<input type="password" name="pass" class="required" /><br />
-
-
-				<input class="acceder" type="submit" value="Entrar" />
+				<label for="password">Contraseña*:</label>
+				<input id="password" type="password" name="password" class="required" /><br />
+				<input class="acceder" type="button" value="Entrar" onclick="login_artista();" />
 			</form>
 		</div>
 	</div>
-
+    <script src="js/Registro_Login.js"></script>
 
 </body>
 

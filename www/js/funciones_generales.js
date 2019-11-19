@@ -324,3 +324,30 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+//Desconectar al artista
+
+function logout(){
+  try{
+  let sharedPreferences = window.plugins.SharedPreferences.getInstance();
+
+    let key = 'id_artista';
+
+    let successCallback = function() {
+      try{
+        window.plugins.toast.showShortCenter('Esperamos que vuelvas pronto',function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+        window.open("Explorar.html","_top");
+      }catch(e){
+        alert('Esperamos que vuelvas pronto');
+        window.open("Explorar.html","_top");
+      }
+    }
+    let errorCallback = function(err) {
+        alert(err);
+    }
+
+    sharedPreferences.del(key, successCallback, errorCallback);
+}catch(e){
+  alert(e);
+}
+}

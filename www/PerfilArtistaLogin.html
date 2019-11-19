@@ -3,11 +3,11 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
 
     <link rel="stylesheet" href="themes/custom.min.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -34,7 +34,9 @@
       <!--MENU PARA PONER EN LAS PAGINAS de artista-->
       <div data-role="panel" id="leftpanel3" data-theme="b" data-position="left" data-display="overlay" class="ui-group-theme-b ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
               <div class="ui-panel-inner" data-theme="b">
-                  <h1 class="titulomenu">livEvent</h1>
+                <div class="text-center">
+                  <img  src="logo.png">
+                </div>
                 <ul data-role="listview" data-inset="false" data-theme="b" style="margin-top: 30px;">
                   <!--
                   <li><a href="MisEventos.html" target="_top">
@@ -51,20 +53,16 @@
                     <h2>Mi perfil</h2>
                   </a>
                   </li>
-                  <li><a href="CrearEvento.html" target="_top">
+                  <li><a id="crearEvento" href="CrearEvento.html" target="_top">
                     <h2>Crear evento</h2>
                   </a>
                   </li>
-                  <li><a href="MisEncuestas.html" target="_top">
+                  <li><a id="encuestaEvento" href="EncuestaEvento.html" target="_top">
                     <h2>Crear encuesta</h2>
                   </a>
                   </li>
-                  <li><a href="Explorar.html" target="_top">
-                    <h2>Explorar</h2>
-                  </a>
-                  </li>
-                  <li><a href="MisEncuestas.html" target="_top">
-                    <h2>Encuestas</h2>
+                  <li><a onclick="logout();" target="_top">
+                    <h2>Desconectarse</h2>
                   </a>
                   </li>
 
@@ -162,11 +160,8 @@
              </ul>
           </div>
       </div>
-
-
-
       <script type="text/javascript" src="js/funciones_generales.js"></script>
-      <script type="text/javascript" src="js/DatosArtistas.js"></script>
+      <script type="text/javascript" src="js/DatosArtistaLogin.js"></script>
 
 
 </body>

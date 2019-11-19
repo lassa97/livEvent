@@ -9,45 +9,37 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
 
-
-        <link rel="stylesheet" href="themes/custom.min.css" />
-        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-  		<link rel="stylesheet" href="css/registro.css" />
-    	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"> 
-    	<script src="js/jquery-1.11.3.min.js"></script>
-    	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-    	<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/comun.css">
+  	<link rel="stylesheet" href="css/registro.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <title>Acceso</title>
 </head>
 <body>
 
 	<div data-role="page">
 	    <div data-role="main" class="ui-content">
-			<form class="formulario" id="formContacto" name="formContacto" method="get" action="https://livevent.es/api/v1/survey_create.php?artistID=10&eventID=9"><br />
+			<form class="formulario" id="formContacto" name="formContacto" method="get" action="none"><br />
 
 				<script type="text/javascript" src="js/EncuestaID.js"></script>
-
-				<label for="artistID"></label>
-				<input type="hidden" name="artistID" value="10" >
-
-				<label for="eventID"></label>
-				<input type="hidden" name="eventID" value="9">
-
+        <!--
 				<label for="date">Hora comienzo a encuestar*:</label>
-				<input type="datetime-local" name="date" min="2019-11-11" required/><br />
-
-				<label for="duration">Duración de la encuesta:</label>
-				<input type="time" name="duration" /><br />
-
-				<input class="submit" type="submit" value="Enviar Encuesta" />
+				<input id="hora_comienzo" type="time" name="date" required/><br />
+      -->
+				<label for="duration">Tiempo que estará abierta la encuesta*:</label>
+				<input id="duration" type="time" name="duration" />
+        <!-- Tal vez poner una mierda para que no pueda hacer todas las encuestas que quiera-->
+				<input  onclick="login_entrevista();" type="button" value="Crear Encuesta" />
 			</form>
 		</div>
 	</div>
-
-
-
-
-
+    <script type="text/javascript" src="js/CrearEncuesta.js" ></script>
 
 
 </body>

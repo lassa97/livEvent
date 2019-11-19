@@ -97,7 +97,7 @@ function getEvents(){
               if(Datos_evento['image']===null){
                 Datos_evento['image']="img/cartel_prueba.jpeg"
               }
-              constructor_lista(2,Datos_evento['image'],Datos_evento['name'],Datos_evento['date']);
+              constructor_lista(Datos_evento['eventID'],Datos_evento['image'],Datos_evento['name'],Datos_evento['date']);
               contador++;
 
             }

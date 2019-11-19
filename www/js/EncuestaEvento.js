@@ -21,14 +21,53 @@
   getids();
 
   function getids(){
+    try{
+
+      let sharedPreferences = window.plugins.SharedPreferences.getInstance();
+
+      let key = 'id_artista';
+      let successCallback = function(value) {
+          montar_eventos(value);
+        }
+      let errorCallback = function(err) {
+          alert(err);
+      }
+
+    sharedPreferences.get(key, successCallback, errorCallback)
+    }catch(e){
+      alert(e);
+    }
+    /*
     let url= document.URL;
+    console.log(url);
     let variables1=url.split("?");
     let artista_id=variables1[1].split("=")[1];
+    link_create();
     montar_eventos(artista_id);
     //montar_cuerpo(evento_id);
+    */
   }
+/*
+  function link_create(){
+    try{
 
+      let sharedPreferences = window.plugins.SharedPreferences.getInstance();
 
+      let key = 'id_artista';
+      let successCallback = function(value) {
+          $("#crearEvento").attr("href", "CrearEvento.html?id="+value);
+          $("#miPerfil").attr("href", "PerfilArtistaLogin.html?id="+value);
+        }
+      let errorCallback = function(err) {
+          alert(err);
+      }
+
+    sharedPreferences.get(key, successCallback, errorCallback)
+    }catch(e){
+      alert(e);
+    }
+  }
+*/
   //---------------------------------------------------------------------------------------
   //
   //Constructores de los elementos de la página
@@ -47,7 +86,7 @@
     }
 
     evento_a.href="CrearEncuesta.html?artistID="+id_artista+"&eventID="+id_evento;
-    evento_a.target="_top";
+    evento_a.target="_self";
 
     let evento_imagen=document.createElement("img");
     evento_imagen.src=imagen_evento;
@@ -68,45 +107,38 @@
   //Funciones de AJAX para coger datos --> Tengo que sacar todos los datos de lo que se construye en la cabecera
   //
   //---------------------------------------------------------------------------------------
-  
+
   function montar_eventos(id){
     //SINCRONO
-    console.log(id);
 
-
-  $.ajax({url: "https://livevent.es/api/v1/event_list.php?artistID="+id,
+  $.ajax({url: "https://livevent.es/api/v1/event_list.php?artistID="+id+"&encuesta=1",
    success: function(result,status){
         //console.log(status);
-       
+
           let datos=JSON.parse(JSON.stringify(result));
-          console.log(datos);
           let datos_eventos=datos['msg']['events'];
-          console.log(datos_eventos);
           document.getElementById("NEventos").textContent=datos_eventos.length;
           if(datos_eventos.length==0){
             let lista_eventos=document.getElementById("lista_eventos");
             let evento=document.createElement("li");
-            
+
             evento.textContent="No hay eventos programados";
             evento.classList.add("listview_no_border");
-            
+
             $("#lista_eventos").append(evento).listview("refresh");
-            
+
           }else{
             let contador_eventos=0;
             while(contador_eventos<(datos_eventos.length)){
-              console.log('ok');
               let datos_single=datos_eventos[contador_eventos];
-              console.log(datos_single);
-
               constructor_eventos(id,datos_single['eventID'],datos_single['name'],datos_single['image'])
               contador_eventos++;
 
             }
-            
 
 
-          }        
+
+          }
     }
   });
   }

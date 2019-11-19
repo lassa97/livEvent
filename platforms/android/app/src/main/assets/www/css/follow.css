@@ -43,3 +43,7 @@ div.box:hover {
 .fuentedescripcion{
   font-family: Agency FB;
 }
+
+.nodisplay {
+  display: none;
+}

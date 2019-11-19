@@ -52,6 +52,8 @@
 
       if(image_event===null){
         image_event="img/cartel_defecto.jpeg";
+      }else{
+        image_event="https://livevent.es/"+image_event;
       }
       document.getElementById("Cartel_concierto").style.backgroundImage="url("+image_event+")";
       document.getElementById("fotografia_evento").src=image_event;
@@ -84,8 +86,13 @@
 
   function constructor_artista(artista_id,nombre_artista,imagen_artista){
 
+
+    //¡¡Poner con el https las imagenes para que salgan bien!!
+
     if(imagen_artista===null){
-      imagen_artista="img/artist_default.jpeg";
+      imagen_artista="img/artist_default0";
+    }else{
+      imagen_artista="https://livevent.es/"+imagen_artista;
     }
 
     let elemento=document.createElement("li");
@@ -188,7 +195,7 @@
                 //console.log(JSON.stringify(datos));
                 let datos_evento=datos['msg'];
                 constructor_cabecera(datos_evento['description'],datos_evento['localization'],datos_evento['date'],datos_evento['image'],id);
-                constructor_tickets(null);
+                //constructor_tickets(null);
                 montar_notificaciones(datos_evento['artistID'],id);
                 montar_artista(datos_evento['artistID']);
             },error: function(error){
