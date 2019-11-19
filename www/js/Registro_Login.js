@@ -98,10 +98,10 @@ function registro_artista(){
       datos_post.append("image",imagen_artista);
       enviar_datos(datos_post);
   }
+  }
 }
-
 //Funcion para coger datos de login
-
+console.log("HOLA");
 function login_artista(){
 
   let email_artista=document.getElementById("email").value;
@@ -171,7 +171,7 @@ function enviar_datos(datos_post){
 function enviar_datos_login(datos_post){
 
   $.ajax({
-  url: "https://livevent.es/api/v1/artist_create.php",
+  url: "https://livevent.es/api/v1/artist_login.php",
   type: "POST",
   data :datos_post,
   processData: false,
@@ -180,6 +180,15 @@ function enviar_datos_login(datos_post){
       if(status==="success"){
         let datos=JSON.parse(JSON.stringify(result));
         console.log(datos);
+        if(datos['msg']=="Email o contraseña incorrectas"){
+          try{
+          window.plugins.toast.showShortCenter('Email o contraseña incorrectas.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+          }catch(e){
+            alert('Email o contraseña incorrectas.');
+          }
+        }else{
+          window.open("PerfilArtistaLogin.html?id="+datos['artistID'],"_top");
+        }
         /*
         if(datos['msg']=="Artista creado correctamente"){
           try{
@@ -200,7 +209,5 @@ function enviar_datos_login(datos_post){
 
         }
       }
-    }
-
   );
 }

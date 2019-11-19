@@ -7,56 +7,33 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-
-    <meta http-equiv="Content-Security-Policy" content="default-src * ; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data: *">
-
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
 
     <link rel="stylesheet" href="themes/custom.min.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/registro.css" />
-        <link rel="stylesheet" type="text/css" href="css/Personalizado.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-        <link rel="stylesheet" href="css/comun.css">
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/jquery.mobile-1.4.5.min.js"></script>
-        <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-
-        <script type="text/javascript">
-            app.initialize();
-
-        </script>
-
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src * 'unsafe-inline'; media-src *" />
-
-
-    <link rel="stylesheet" type="text/css" href="css/registro.css" >
-    <link rel="stylesheet" type="text/css" href="css/Personalizado.css" >
-    <link rel="stylesheet" type="text/css" href="css/index.css" >
-    <link href="css/default.css" rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" type="text/css" href="css/registro.css" />
+    <link rel="stylesheet" type="text/css" href="css/Personalizado.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/comun.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
   	<script src="js/jquery-1.11.3.min.js"></script>
   	<script src="js/jquery.mobile-1.4.5.min.js"></script>
   	<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/Funciones.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB0uU81YMoqnicSmxts4cTWD3QOYbo35nU"></script>
-    <script type="text/javascript" src="js/googleMaps.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
         app.initialize();
 
     </script>
 
-    <title>Acceso</title>
+    <title>Eventos</title>
 </head>
 <body>
 
     <div data-role="page" data-theme="d">
 
-    <!--MENU PARA PONER EN LAS PAGINAS-->
+    <!--MENU PARA PONER EN LAS PAGINAS DEL ARTISTA-->
     <div data-role="panel" id="leftpanel3" data-theme="b" data-position="left" data-display="overlay" class="ui-group-theme-b ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
             <div class="ui-panel-inner" data-theme="b">
               <div class="text-center">
@@ -74,6 +51,18 @@
                 </a>
                 </li>
               -->
+                <li><a onclick="location.reload();">
+                  <h2>Mi perfil</h2>
+                </a>
+                </li>
+                <li><a href="CrearEvento.html" target="_top">
+                  <h2>Crear evento</h2>
+                </a>
+                </li>
+                <li><a href="MisEncuestas.html" target="_top">
+                  <h2>Crear encuesta</h2>
+                </a>
+                </li>
                 <li><a href="Explorar.html" target="_top">
                   <h2>Explorar</h2>
                 </a>
@@ -82,10 +71,7 @@
                   <h2>Encuestas</h2>
                 </a>
                 </li>
-                <li><a href="AccesoArtista.html" target="_top">
-                  <h2>Acceso artista</h2>
-                </a>
-                </li>
+
               </ul>
             </div>
             <!--
@@ -93,11 +79,6 @@
                 <a href="index.html">Soy artista</a>
             </div>-->
       </div>
-            <!--
-            <div style="position:fixed;bottom:0px;font-size:16px;width:inherit;text-align:right">
-                <a href="index.html">Soy artista</a>
-            </div>-->
-
         <!--MENU PARA PONER EN LAS PAGINAS-->
 
       <div data-role="header" data-theme="d">
@@ -106,22 +87,22 @@
           <a style="background: none;border:none"href="#leftpanel3" class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext">Delete</a>
           <!--MENU PARA PONER EN LAS PAGINAS-->
 
-            <h1 class="titulos_header">ACCESO</h1>
+            <h1 class="titulos_header">CREACIÓN</h1>
 
       </div>
   <div style="padding:0px" data-role="content" data-theme="b">
-    <div data-role="navbar" >
+      <!--<<div data-role="navbar" >
         <ul>
-            <li><a href="LoginArtista.html" class="ui-btn-active ui-state-persist" target="registro">Login</a>
+            <li><a href="editar.html" class="ui-btn-active ui-state-persist" target="registro">Editar evento</a>
         </li>
-            <li><a href="RegistroArtista.html" target="registro">Registro</a></li>
+         	<li><a href="borrar.html" target="registro">Borrar Evento</a></li>
+            <li><a href="crear.html" target="registro">Crear Evento</a></li>
         </ul>
-    </div>
+    </div>-->
   </div>
 
-
-        <iframe src="LoginArtista.html" name="registro" style="width:100%;height:90vh;overflow:hidden;border:none" >
-        </iframe>
+      <iframe  src="OpcionCrearEvento.html" name="registro" style="width:100%;height:100vh;overflow:hidden;border:none" >
+      </iframe>
 
     </div>
 </body>
