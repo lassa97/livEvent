@@ -154,7 +154,7 @@ function share_media(red,tipo){
 
   if(tipo==1){
 
-
+    let artista_name=document.getElementById("Artista_nombre").textContent;
   mensaje='¡El artista '+artista_name+' está en la aplicación LivEvent!.¡Descargatela para android y siguelo!';
 
   }
@@ -329,17 +329,17 @@ function openCity(evt, cityName) {
 
 function logout(){
   try{
-  let sharedPreferences = window.plugins.SharedPreferences.getInstance();
+  let sharedPreferences = window.plugins.SharedPreferences.getInstance("app");
 
     let key = 'id_artista';
 
     let successCallback = function() {
       try{
         window.plugins.toast.showShortCenter('Esperamos que vuelvas pronto',function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
-        window.open("Explorar.html","_top");
+        window.open("index.html","_top");
       }catch(e){
         alert('Esperamos que vuelvas pronto');
-        window.open("Explorar.html","_top");
+        window.open("index.html","_top");
       }
     }
     let errorCallback = function(err) {

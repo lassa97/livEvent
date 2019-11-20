@@ -7,13 +7,14 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * ; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data: *">
 
 
         <link rel="stylesheet" type="text/css" href="css/registro.css" />
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
+            <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/star-rating.min.css" />
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile.nestedlists.js"></script>
@@ -34,11 +35,11 @@
 
 
       <label for="score"><p class="encuesta">Satisfacción total:</p></label>
-      <input type="range" name="score" id="score" min="0" max="10" value="5"><br />
+      <input type="range" name="score" id="score" min="0" max="10" value="5" required><br />
 
       <!--<label for="score" class="control-label"><p class="encuesta">¿Qué te ha parecido el concierto?</p></label>
       <input name="score" class="rating rating-loading" value="2.5" data-min="0" data-max="5" data-step="0.5" data-size="lg"><br />-->
-<!--
+        <!--
       <label for="repertorio" class="control-label"><p class="encuesta">Temática y repertorio:</p></label>
       <input id="repertorio" name="repertorio" class="rating rating-loading" value="3" data-min="0" data-max="5" data-step="0.5" data-size="lg"><br />
 
@@ -52,13 +53,13 @@
       <input type="range" name="satisfaccion" id="satisfaccion" min="0" max="100" value="50"><br />-->
 
       <label for="opinion"><p class="encuesta">Breve opinión:</p></label>
-      <input type="text" name="opinion" maxlength="200" placeholder="Añada sus comentarios" maxlength="50"><br />
+      <input type="text" id="opinion" name="opinion" maxlength="200" placeholder="Añada sus comentarios" maxlength="200" required><br />
 
-      <input class="acceder" type="submit" value="Enviar" />
+      <input class="acceder" type="button" onclick="getForm();" value="Enviar" />
       </form>
     </div>
   </div>
-  <script src="js/Encuestas.js"></script>
+  <script src="js/DatosEncuesta.js"></script>
 
 
 </body>

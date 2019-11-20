@@ -8,10 +8,12 @@
 
 function check_id(){
   try{
+
     let sharedPreferences = window.plugins.SharedPreferences.getInstance("app");
     let key = 'id_unico';
     let successCallback = function(value) {
-        //alert(value);
+
+      $("#encuesta").attr("src", "ListaEncuestas.html?userID="+value);
       }
     let errorCallback = function(err) {
         unique_id();

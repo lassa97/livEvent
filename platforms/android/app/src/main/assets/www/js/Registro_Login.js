@@ -1,6 +1,7 @@
 //Para coger registro datos
 
 function registro_artista(){
+
   let nombre_artista=document.getElementById("name").value;
   let select_gender=document.getElementById("gender");
   let gender_artista=select_gender.options[select_gender.selectedIndex].value;
@@ -12,7 +13,8 @@ function registro_artista(){
   let facebook_artista=document.getElementById("facebook").value;
   let instagram_artista=document.getElementById("instagram").value;
   let webpage_artista=document.getElementById("webpage").value;
-  let imagen_artista=document.getElementById("imagen").files[0];
+  let imagen_artista=false;
+  //let imagen_artista=document.getElementById("imagen").files[0];
 
   if(nombre_artista=="" || gender_artista=="" || email_artista=="" || password_artista==""){
     try{
@@ -51,11 +53,14 @@ function registro_artista(){
       reader.readAsDataURL(imagen_artista);
       let img= new Image();
       reader.onloadend = function() {
-          img.src= reader.result;
-          img.onloadend=function(){
-            let height=img.height;
-            let width=img.width;
-          if(height>300 && width>300){
+          //img.src= reader.result;
+          //img.style.display="none";
+
+          //img.onloadend=function(){
+            //let height=img.height;
+            //let width=img.width;
+
+          //if(height>300 && width>300){
 
             let datos_post=new FormData();
             datos_post.append("email",email_artista);
@@ -72,14 +77,16 @@ function registro_artista(){
             datos_post.append("image",imagen_artista);
             console.log(datos_post);
             enviar_datos(datos_post);
+            /*
           }else{
             try{
             window.plugins.toast.showShortCenter('Introduzca una foto de mayor resolución.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
             }catch(e){
               alert('Introduzca una foto de mayor resolución.');
             }
-          }
-        }
+          }*/
+        //}
+        //document.getElementById("description").append(img);
       }
     }else{
       imagen_artista=null;
@@ -101,12 +108,10 @@ function registro_artista(){
   }
 }
 //Funcion para coger datos de login
-console.log("HOLA");
 function login_artista(){
 
   let email_artista=document.getElementById("email").value;
   let password_artista=document.getElementById("password").value;
-
 
   if(email_artista=="" || password_artista==""){
     try{
@@ -132,7 +137,6 @@ function login_artista(){
 //Funcion para enviar los datos del formulario
 
 function enviar_datos(datos_post){
-
   $.ajax({
   url: "https://livevent.es/api/v1/artist_create.php",
   type: "POST",
@@ -170,6 +174,8 @@ function enviar_datos(datos_post){
 
 function enviar_datos_login(datos_post){
 
+
+
   $.ajax({
   url: "https://livevent.es/api/v1/artist_login.php",
   type: "POST",
@@ -186,8 +192,9 @@ function enviar_datos_login(datos_post){
           }catch(e){
             alert('Email o contraseña incorrectas.');
           }
+
         }else{
-          window.open("PerfilArtistaLogin.html","_self");
+          window.open("PerfilArtistaLogin.html?id="+datos['artistID'],"_top");
         }
         /*
         if(datos['msg']=="Artista creado correctamente"){
@@ -201,13 +208,12 @@ function enviar_datos_login(datos_post){
           */
         }else{
           try{
-          window.plugins.toast.showShortCenter('Email/Nombre ya en uso', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+          window.plugins.toast.showShortCenter('Error al conectarse', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
           }catch(e){
-            alert('Email/Nombre ya en uso');
-          }
+            alert('Error al conectarse');
         }
-
         }
       }
+    }
   );
 }

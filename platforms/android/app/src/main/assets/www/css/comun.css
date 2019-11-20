@@ -63,3 +63,8 @@
  /*li.ui-last-child > a{
    border-bottom:none !important;
  }*/
+ .titulos_listas{
+   color:#f40b16;
+   font-size:18px;
+   font-weight: 500;
+ }

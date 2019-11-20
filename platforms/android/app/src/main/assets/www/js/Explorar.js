@@ -6,12 +6,9 @@
 //
 //---------------------------------------------------------------------------------------
 
-
 function check_id(){
   try{
-
-    let sharedPreferences = window.plugins.SharedPreferences.getInstance();
-
+    let sharedPreferences = window.plugins.SharedPreferences.getInstance("app");
     let key = 'id_unico';
     let successCallback = function(value) {
         //alert(value);
@@ -20,7 +17,7 @@ function check_id(){
         unique_id();
     }
 
-  sharedPreferences.get(key, successCallback, errorCallback)
+  sharedPreferences.get(key,successCallback,errorCallback);
   }catch(e){
     alert(e);
   }
@@ -28,14 +25,14 @@ function check_id(){
 
 function unique_id(){
   try{
-  let sharedPreferences = window.plugins.SharedPreferences.getInstance();
+  let sharedPreferences = window.plugins.SharedPreferences.getInstance("app");
 
     let key = 'id_unico';
     let d = new Date();
     let x=d.getTime();
     let value = x+"-LE-"+Math.random().toString(36).substring(2, 15);
     let successCallback = function() {
-
+        alert(value);
       $.post("https://livevent.es/api/v1/user_create.php",{
         IMEI: value
       },function(result,status){
@@ -51,11 +48,13 @@ function unique_id(){
     }
     let errorCallback = function(err) {
         alert(err);
+        alert("Hola");
     }
 
     sharedPreferences.put(key, value, successCallback, errorCallback);
 }catch(e){
   alert(e);
+        alert("Hola2");
 }
 
 }

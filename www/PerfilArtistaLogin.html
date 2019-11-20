@@ -7,7 +7,7 @@
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-  <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
+  <meta http-equiv="Content-Security-Policy" content="default-src * ; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data: *">
 
     <link rel="stylesheet" href="themes/custom.min.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -18,17 +18,17 @@
     <link rel="stylesheet" href="css/LocalizacionSeleccionar.css">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
     <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
     <!--Esta no estaba
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5I0BgjiHAqIeLoiaOu6EeJhrv4QzXC74&libraries=places&callback=initMap&sensor=true" async defer></script>
       Esta no estaba-->
-    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/SocialSharing.js"></script>
     <title>Perfil Artista</title>
 </head>
-<body>
+<body onload="getids();">
     <div data-role="page" data-theme="d">
 
       <!--MENU PARA PONER EN LAS PAGINAS de artista-->
@@ -135,24 +135,24 @@
           </div>
           <div data-role="panel" id="popupsocial" data-theme="d" data-position="right" data-display="overlay" class="ui-group-theme-d ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
             <ul id="listado_social" data-role="listview" data-inset="false" data-theme="d"  data-icon="false" style="border:none" >
-              <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp',2)">
+              <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp',1)">
                   <img src="img/Iconos_compartir/whatsapp.png">
                   <h2>Whatsapp</h2>
                 </a>
               </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook',2)">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook',1)">
                  <img src="img/Iconos_compartir/Facebook.png">
                  <h2>Facebook</h2>
                </a>
                </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter',2)">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter',1)">
                  <img src="img/Iconos_compartir/Twitter.png">
                  <h2>Twitter</h2>
                </a>
                </li>
 
              <!-- Ver como le pongo que al pulsar salga el link-->
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('paste',2)">
+               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('paste',1)">
                  <img src="img/Iconos_compartir/Link.png">
                  <h2>Copiar link</h2>
                </a>
@@ -161,7 +161,7 @@
           </div>
       </div>
       <script type="text/javascript" src="js/funciones_generales.js"></script>
-      <script type="text/javascript" src="js/DatosArtistaLogin.js"></script>
+      <script type="text/javascript" src="js/DatosArtistasLogin.js"></script>
 
 
 </body>

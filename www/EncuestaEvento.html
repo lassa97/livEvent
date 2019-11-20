@@ -15,20 +15,21 @@
     <link rel="stylesheet" type="text/css" href="css/Personalizado.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/comun.css">
+    <script type="text/javascript" src="cordova.js"></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/Funciones.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script>
         app.initialize();
 
     </script>
 
     <title>Eventos</title>
 </head>
-<body>
+<body onload="getids();">
 
     <div data-role="page">
 
@@ -86,9 +87,10 @@
 
       </div>
       <!-- Lo mejor que coja el id por la sesion, aqui lo mando pero mal-->
-      <iframe  id="encuesta" src="ListaEncuestasArtistas.html" name="encuesta" style="width:100%;height:100vh;overflow:hidden;border:none" >
+      <iframe  id="encuesta" name="encuesta" style="width:100%;height:100vh;overflow:hidden;border:none" >
       </iframe>
       <script type="text/javascript" src="js/funciones_generales.js"></script>
+      <script type="text/javascript" src="js/EncuestaEvento.js"></script>
 
 
 </body>

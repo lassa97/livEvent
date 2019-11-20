@@ -1,9 +1,30 @@
 
+let usuario;
+
 //---------------------------------------------------------------------------------------
 //
 //Constructores para el contenido de la pagina
 //
 //---------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------
+//
+//Funciones para coger identificadores
+//
+//---------------------------------------------------------------------------------------
+
+
+getids();
+
+function getids(){
+
+  let url= document.URL;
+  let variables1=url.split("?");
+
+  usuario=variables1[1].split("=")[1];
+  getSurveys();
+
+}
 
 function constructor_encuesta(survey_id,survey_image,survey_name,survey_description){
 
@@ -11,7 +32,7 @@ function constructor_encuesta(survey_id,survey_image,survey_name,survey_descript
   let encuesta_enlace=document.createElement("a");
   encuesta.classList.add("listview_no_border");
 
-  encuesta_enlace.href="DatosEncuesta.html?Encuesta="+survey_id;
+  encuesta_enlace.href="DatosEncuesta.html?Encuesta="+survey_id+"&userID="+usuario;
   encuesta_enlace.target="_self";
   encuesta_enlace.classList.add("listview_no_side");
 
@@ -44,7 +65,7 @@ function constructor_encuesta(survey_id,survey_image,survey_name,survey_descript
 //Funcion para coger la lista de encuestas que hay disponibles.
 //
 //---------------------------------------------------------------------------------------
-getSurveys();
+
 
 function getSurveys(){
   $.ajax({url: "https://livevent.es/api/v1/survey_list.php",success: function(result){
