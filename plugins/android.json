@@ -7,35 +7,35 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-clipboard": {
+      "PACKAGE_NAME": "es.livevent.tlm"
+    },
+    "cordova-plugin-awesome-shared-preferences": {
+      "PACKAGE_NAME": "es.livevent.tlm"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "es.livevent.tlm"
+    },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "es.livevent.tlm"
     },
     "cordova-plugin-x-socialsharing": {
       "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "es.livevent.tlm"
     },
     "cordova-plugin-x-toast": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-local-notification": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-awesome-shared-preferences": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-clipboard": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "es.livevent.tlm"
     }
   },
   "dependent_plugins": {
-    "es6-promise-plugin": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "es.livevent.tlm"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+      "PACKAGE_NAME": "es.livevent.tlm"
     },
-    "cordova-plugin-badge": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "es.livevent.tlm"
     }
   }
 }

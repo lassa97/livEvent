@@ -16,7 +16,16 @@ function registro_artista(){
   let imagen_artista=false;
   //let imagen_artista=document.getElementById("imagen").files[0];
 
-  if(nombre_artista=="" || gender_artista=="" || email_artista=="" || password_artista==""){
+  if(!emailIsValid(email_artista)){
+
+    alert("Introduzca un email válido.");
+
+  }else if(password_artista.length<8){
+    alert("Introduzca una contraseña de 8 caracteres al menos.")
+  }
+
+
+  else if(nombre_artista=="" || gender_artista=="" || email_artista=="" || password_artista==""){
     try{
     window.plugins.toast.showShortCenter('Introduzca todos los campos obligatorios.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
     }catch(e){
@@ -216,4 +225,10 @@ function enviar_datos_login(datos_post){
       }
     }
   );
+}
+
+//Comprobar si un email es de verdad un email
+
+function emailIsValid (email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }

@@ -1,6 +1,4 @@
 
-let latitud;
-let longitud;
 
 
 //---------------------------------------------------------------------
@@ -10,14 +8,14 @@ let longitud;
 //---------------------------------------------------------------------
 function initMap() {
 
-  console.log("what");
+
     let map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.4167754, lng: -3.7037901999999576},
       zoom: 6
     });
     let input = document.getElementById('searchInput');
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
+    //input.style.left="15px";
     let autocomplete = new google.maps.places.Autocomplete(input);
     autocomplete.bindTo('bounds', map);
 
@@ -64,7 +62,7 @@ function initMap() {
             ].join(' ');
         }
 
-        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+        infowindow.setContent('<div style="text-align:center;padding-right:12px;padding-bottom:12px"><strong>' + place.name + '</strong><br>' + address);
         infowindow.open(map, marker);
 
         //Location details
@@ -77,15 +75,16 @@ function initMap() {
                 document.getElementById('country').innerHTML = place.address_components[i].long_name;
             }
         }*/
-        console.log(place['name']);
-
         document.getElementById('calle').parentNode.style.display="block";
-        document.getElementById('ciudad').parentNode.style.display="block";
-        document.getElementById('calle').innerHTML = place['name'];
-        document.getElementById('ciudad').innerHTML = place.address_components[0].short_name;
-
-        latitud= place.geometry.location.lat();
-        longitud= place.geometry.location.lng();
+        //document.getElementById('ciudad').parentNode.style.display="block";
+        document.getElementById('calle').innerHTML = place['formatted_address'];
+        datos_localizacion[0]=place.address_components[0].long_name;
+        datos_localizacion[1]=place.address_components[1].long_name;
+        //document.getElementById('ciudad').innerHTML = place.address_components[0].short_name;
+      //    document.getElementsByClassName("ui-input-text")[2].style.display="hide";
+        datos_localizacion[2]= place.geometry.location.lat();
+        datos_localizacion[3]= place.geometry.location.lng();
+        console.log(datos_localizacion);
     });
 }
 

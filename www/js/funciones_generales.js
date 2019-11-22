@@ -155,25 +155,26 @@ function share_media(red,tipo){
   if(tipo==1){
 
     let artista_name=document.getElementById("Artista_nombre").textContent;
-  mensaje='¡El artista '+artista_name+' está en la aplicación LivEvent!.¡Descargatela para android y siguelo!';
+  mensaje='¡El artista '+artista_name+' está en la aplicación LivEvent!.¡Descargatela para android!';
 
   }
   if(tipo==2){
       let event_name=document.getElementById("Evento_nombre").textContent;
-      mensaje='¡El evento '+event_name+' está en la aplicación LivEvent!.¡Descargatela para android y siguelo!';
+      mensaje='¡El evento '+event_name+' está en la aplicación LivEvent!.¡Descargatela para android!';
   }
+  let link="https://play.google.com/store/apps/details?id=es.livevent.tlm";
   //let link=(document.URL).split("www/")[1];
   //let enlace='https://livevent.es/'+link;
   //enlace=document.URL;
 
   if(red=="twitter"){
-  window.plugins.socialsharing.shareViaTwitter(mensaje, null /* img */, null /*url*/);
+  window.plugins.socialsharing.shareViaTwitter(mensaje, null /* img */, link /*url*/);
   }else if (red=="facebook") {
-    window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(mensaje, null /* img */, null /* url */, 'Fallo en el envio, mensaje copiado al portapapeles.', function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
+    window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint(mensaje, null /* img */, link /* url */, 'Fallo en el envio, mensaje copiado al portapapeles.', function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
   }else if (red=="whatsapp") {
-    window.plugins.socialsharing.shareViaWhatsApp(mensaje, null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
+    window.plugins.socialsharing.shareViaWhatsApp(mensaje, null /* img */, link /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)});
   }else if(red=="paste"){
-    cordova.plugins.clipboard.copy(mensaje);
+    cordova.plugins.clipboard.copy(mensaje+"\n"+url);
     try{
     window.plugins.toast.showShortCenter('Mensaje copiado al portapapeles.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
     }catch(e){

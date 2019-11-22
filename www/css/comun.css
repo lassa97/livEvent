@@ -68,3 +68,11 @@
    font-size:18px;
    font-weight: 500;
  }
+ .navbar_editar{
+   padding-right: 0px;
+   max-height:45px;
+   white-space:normal;
+   color: red!important;
+   background-color: white !important;
+   border-left: none;
+ }

@@ -50,11 +50,12 @@
 
   function constructor_cabecera(Evento_nombre,room_name,date_event,image_event,evento_id){
 
-      if(image_event===null){
+      if(image_event==null || image_event=="" || image_event=="null"){
         image_event="img/cartel_defecto.jpeg";
       }else{
         image_event="https://livevent.es/"+image_event;
       }
+
       document.getElementById("Cartel_concierto").style.backgroundImage="url("+image_event+")";
       document.getElementById("fotografia_evento").src=image_event;
 
@@ -95,6 +96,8 @@
       imagen_artista="https://livevent.es/"+imagen_artista;
     }
 
+    imagen_artista="img/artist_default0";
+
     let elemento=document.createElement("li");
     let enlace=document.createElement("a");
     let nombre=document.createElement("h4");
@@ -127,7 +130,7 @@
     let datos_tickets=document.createElement("p");
 
     if(link_tickets===null){
-      datos_tickets="Información no disponible";
+      datos_tickets="Información no disponible.";
       objeto_tickets.append(datos_tickets);
     }else{
 
@@ -195,7 +198,7 @@
                 //console.log(JSON.stringify(datos));
                 let datos_evento=datos['msg'];
                 constructor_cabecera(datos_evento['description'],datos_evento['localization'],datos_evento['date'],datos_evento['image'],id);
-                //constructor_tickets(null);
+                constructor_tickets(null);
                 montar_notificaciones(datos_evento['artistID'],id);
                 montar_artista(datos_evento['artistID']);
             },error: function(error){
@@ -257,7 +260,7 @@
             let lista_notificaciones=document.getElementById("lista_notificaciones");
             let notificacion=document.createElement("li");
             //let notificacion_titulo=document.createElement("p");
-            notificacion.textContent="No hay notificaciones aun";
+            notificacion.textContent="No hay notificaciones aún.";
             notificacion.classList.add("listview_no_border");
             //notificacion.append(notificacion_titulo);
 

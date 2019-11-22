@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
+
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="themes/custom.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/comun.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+  	<link rel="stylesheet" href="css/registro.css" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <title>Acceso</title>
+</head>
+<body>
+
+	<div data-role="page">
+	    <div data-role="main" class="ui-content">
+			<form class="formulario" id="formContacto" name="formContacto" method="get" action="none"><br />
+
+        <!--
+				<label for="date">Hora comienzo a encuestar*:</label>
+				<input id="hora_comienzo" type="time" name="date" required/><br />
+      -->
+				<label class="titulos_listas"for="titulo">Titulo de la notificación*:</label>
+				<input id="titulo" type="text" name="titulo" placeholder="Título de la notificación" />
+        <label class="titulos_listas"for="mensaje">Mensaje de la notificación*:</label>
+        <textarea id="mensaje"  placeholder="Escribe tu mensaje ..." maxlength="3000" name="mensaje" required/></textarea>
+        <label class="titulos_listas"for="duration">Añadir imagen:</label>
+        <input id="imagen" type="file" name="duration" required/>
+        <!-- Tal vez poner una mierda para que no pueda hacer todas las encuestas que quiera-->
+				<input  onclick="crear_notificacion();" type="button" value="Crear notificación" />
+			</form>
+		</div>
+	</div>
+    <script type="text/javascript" src="js/CrearNotificacion.js" ></script>
+
+
+</body>
+
+
+
+</html>

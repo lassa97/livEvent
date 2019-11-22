@@ -40,9 +40,11 @@ function constructor_lista(id_artista,artista_img,artista_name,artista_genero){
   let imagen=document.createElement("img");
   let genero=document.createElement("p");
   nombre.textContent=artista_name;
-  if(artista_img==null || artista_img==""){
+  if(artista_img==null || artista_img=="" || artista_img=="null"){
     artista_img="img/artist_default.jpeg";
   }
+    //CAMBIAR LAS COSAS
+
   imagen.classList.add("img-responsive");
   imagen.classList.add("center-block");
   imagen.classList.add("imagen-perfil");

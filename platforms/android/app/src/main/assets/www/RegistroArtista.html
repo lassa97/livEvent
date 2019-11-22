@@ -13,8 +13,11 @@
         <link rel="stylesheet" href="themes/custom.min.css" />
         <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
   		<link rel="stylesheet" type="text/css" href="css/registro.css" />
+              <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/comun.css" />
     	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     	<script src="js/jquery-1.11.3.min.js"></script>
+              <script src="js/bootstrap.min.js"></script>
     	<script src="js/jquery.mobile-1.4.5.min.js"></script>
     	<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <title>Acceso</title>
@@ -24,10 +27,10 @@
 	    <div data-role="main" class="ui-content">
 			<form class="formulario" id="formArtista" name="formContacto"><br />
 
-				<label for="name">Nombre artista*:</label>
+				<label class="titulos_listas" for="name">Nombre artista*:</label>
 				<input id="name" type="text" name="name" placeholder="Nombre artista" maxlength="50" required /><br />
 
-				<label for="gender">Indique su género musical*:</label>
+				<label class="titulos_listas"  for="gender">Indique su género musical*:</label>
 			    <select id="gender" name="gender" class="required" >
 			       <option value="Blues">Blues</option>
 			       <option value="Clásico">Clásico</option>
@@ -49,34 +52,34 @@
 			       <option value="Trap">Trap</option>
 			    </select> <br/>
 
-				<label for="email">E-mail*:</label>
+				<label class="titulos_listas"  for="email">E-mail*:</label>
 				<input id="email" type="email" name="email" placeholder="E-mail" class="required" required /><br />
 
-				<label for="password">Contraseña*:</label>
+				<label class="titulos_listas"  for="password">Contraseña*:</label>
 				<input id="password" type="password" name="password" required /><br />
 
-				<label for="description">Descripción:</label>
+				<label class="titulos_listas"  for="description">Descripción:</label>
 				<textarea id="description" placeholder="Escribe una breve descripción para tu perfil de artista (40 caráteres)" maxlength="60" name="description"></textarea><br />
 
-				<label style="display:none" for="image">Subir imagen de perfil:</label>
+				<label class="titulos_listas" for="image">Subir imagen de perfil:</label>
         <div>
-			    <input id="imagen" type="hidden" accept="image/png, image/jpg, image/jpeg" name="image" value="null"><br />
+            <input type="file" name="image"/>
         </div>
 
-			    <label  for="twitter">Redes Sociales: </label>
-			    <input id="twitter" type="text" name="twitter" placeholder="twitter" />
+			    <label  class="titulos_listas"  for="twitter">Redes Sociales: </label>
+			    <input id="twitter" type="text" name="twitter" placeholder="Twitter: livevent" />
 
-			    <label for="youtube"></label>
-			    <input id="youtube" type="text" name="youtube" placeholder="youtube" />
+			    <label class="titulos_listas" for="youtube"></label>
+			    <input id="youtube" type="text" name="youtube" placeholder="Youtube: livevent" />
 
-			    <label style="display:none" for="facebook"></label>
-			    <input id="facebook" type="hidden" name="facebook"  placeholder="livevent" />
+			    <label class="titulos_listas" for="facebook: "></label>
+			    <input id="facebook" type="text" name="facebook"  placeholder="Facebook: livevent" />
 
-			    <label for="instagram"></label>
-			    <input id="instagram" type="text" name="instagram"  placeholder="instagram" />
+			    <label class="titulos_listas" for="instagram"></label>
+			    <input id="instagram" type="text" name="instagram"  placeholder="Instagram: livevent" />
 
-			    <label for="webpage"></label>
-			    <input id="webpage" type="text" name="webpage" placeholder="webpage" /><br />
+			    <label class="titulos_listas" for="webpage"></label>
+			    <input id="webpage" type="text" name="webpage" placeholder="Webpage: http://..." /><br />
 
 
 		<!-- <label for="genero">Género musical</label>

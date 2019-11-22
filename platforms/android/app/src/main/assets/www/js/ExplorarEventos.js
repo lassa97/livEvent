@@ -49,6 +49,10 @@ function  constructor_lista(id_evento,event_img,event_name,event_date){
   if(event_img==null || event_img=="img/cartel_prueba.jpeg"){
     event_img="img/cartel_defecto.jpeg";
   }
+
+    //CAMBIAR LAS COSAS
+
+  event_img="img/cartel_defecto.jpeg";
   imagen.src=event_img;
 
   fecha_event=sacar_fecha(event_date,1);

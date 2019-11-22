@@ -1,33 +1,19 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "es6-promise-plugin.Promise",
-      "file": "plugins/es6-promise-plugin/www/promise.js",
-      "pluginId": "es6-promise-plugin",
-      "runs": true
-    },
-    {
-      "id": "cordova-plugin-x-socialsharing.SocialSharing",
-      "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
-      "pluginId": "cordova-plugin-x-socialsharing",
+      "id": "cordova-clipboard.Clipboard",
+      "file": "plugins/cordova-clipboard/www/clipboard.js",
+      "pluginId": "cordova-clipboard",
       "clobbers": [
-        "window.plugins.socialsharing"
+        "cordova.plugins.clipboard"
       ]
     },
     {
-      "id": "cordova-plugin-x-toast.Toast",
-      "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
-      "pluginId": "cordova-plugin-x-toast",
+      "id": "cordova-plugin-awesome-shared-preferences.SharedPreferences",
+      "file": "plugins/cordova-plugin-awesome-shared-preferences/www/index.js",
+      "pluginId": "cordova-plugin-awesome-shared-preferences",
       "clobbers": [
-        "window.plugins.toast"
-      ]
-    },
-    {
-      "id": "cordova-plugin-device.device",
-      "file": "plugins/cordova-plugin-device/www/device.js",
-      "pluginId": "cordova-plugin-device",
-      "clobbers": [
-        "device"
+        "window.plugins.SharedPreferences"
       ]
     },
     {
@@ -36,6 +22,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-badge",
       "clobbers": [
         "cordova.plugins.notification.badge"
+      ]
+    },
+    {
+      "id": "cordova-plugin-device.device",
+      "file": "plugins/cordova-plugin-device/www/device.js",
+      "pluginId": "cordova-plugin-device",
+      "clobbers": [
+        "device"
       ]
     },
     {
@@ -65,31 +59,37 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-awesome-shared-preferences.SharedPreferences",
-      "file": "plugins/cordova-plugin-awesome-shared-preferences/www/index.js",
-      "pluginId": "cordova-plugin-awesome-shared-preferences",
+      "id": "es6-promise-plugin.Promise",
+      "file": "plugins/es6-promise-plugin/www/promise.js",
+      "pluginId": "es6-promise-plugin",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-x-socialsharing.SocialSharing",
+      "file": "plugins/cordova-plugin-x-socialsharing/www/SocialSharing.js",
+      "pluginId": "cordova-plugin-x-socialsharing",
       "clobbers": [
-        "window.plugins.SharedPreferences"
+        "window.plugins.socialsharing"
       ]
     },
     {
-      "id": "cordova-clipboard.Clipboard",
-      "file": "plugins/cordova-clipboard/www/clipboard.js",
-      "pluginId": "cordova-clipboard",
+      "id": "cordova-plugin-x-toast.Toast",
+      "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
+      "pluginId": "cordova-plugin-x-toast",
       "clobbers": [
-        "cordova.plugins.clipboard"
+        "window.plugins.toast"
       ]
     }
   ];
   module.exports.metadata = {
+    "cordova-clipboard": "1.3.0",
+    "cordova-plugin-awesome-shared-preferences": "0.1.0",
+    "cordova-plugin-badge": "0.8.8",
+    "cordova-plugin-device": "2.0.3",
+    "cordova-plugin-local-notification": "0.9.0-beta.2",
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-x-socialsharing": "5.6.2",
-    "cordova-plugin-x-toast": "2.7.2",
-    "cordova-plugin-device": "2.0.3",
-    "cordova-plugin-badge": "0.8.8",
-    "cordova-plugin-local-notification": "0.9.0-beta.2",
-    "cordova-plugin-awesome-shared-preferences": "0.1.0",
-    "cordova-clipboard": "1.3.0"
+    "cordova-plugin-x-toast": "2.7.2"
   };
 });

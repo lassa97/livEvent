@@ -50,11 +50,12 @@
 
   function constructor_cabecera(Evento_nombre,room_name,date_event,image_event,evento_id){
 
-      if(image_event===null){
+      if(image_event==null || image_event=="" || image_event=="null"){
         image_event="img/cartel_defecto.jpeg";
       }else{
         image_event="https://livevent.es/"+image_event;
       }
+
       document.getElementById("Cartel_concierto").style.backgroundImage="url("+image_event+")";
       document.getElementById("fotografia_evento").src=image_event;
 
@@ -94,6 +95,8 @@
     }else{
       imagen_artista="https://livevent.es/"+imagen_artista;
     }
+
+    imagen_artista="img/artist_default0";
 
     let elemento=document.createElement("li");
     let enlace=document.createElement("a");

@@ -70,8 +70,8 @@ function getEvents(flag,check){
               let contador=0;
               while(contador<Lista_eventos.length){
                 let Datos_evento=Lista_eventos[contador];
-                if(Datos_evento['image']===null){
-                  Datos_evento['image']="img/cartel_prueba.jpeg"
+                if(Datos_evento['image']==null || Datos_evento['image']=="null" || Datos_evento['image']==""){
+                  Datos_evento['image']="img/cartel_defecto.jpeg"
                 }
                 constructor_lista(Datos_evento['eventID'],Datos_evento['image'],Datos_evento['name'],Datos_evento['date']);
                 contador++;

@@ -27,6 +27,10 @@ function constructor_eventos(id_artista,id_evento,titulo_evento,imagen_evento){
     imagen_evento="img/cartel_prueba.jpeg";
   }
 
+  //HAY QUE CAMBIAR ESTO
+
+  imagen_evento="img/cartel_prueba.jpeg";
+
   evento_a.href="CrearEncuesta.html?artistID="+id_artista+"&eventID="+id_evento;
   evento_a.target="_self";
 

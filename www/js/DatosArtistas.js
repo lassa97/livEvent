@@ -296,8 +296,8 @@
     let evento_a=document.createElement("a");
     evento.classList.add("listview_no_border");
 
-    if(imagen_evento==null){
-      imagen_evento="img/cartel_prueba.jpeg";
+    if(imagen_evento=="null" || imagen_evento==null){
+      imagen_evento="img/cartel_defecto.jpeg";
     }
 
     evento_a.href="DatosEvento.html?evento="+id_evento;

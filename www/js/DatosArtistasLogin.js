@@ -188,7 +188,7 @@ let artista_id
   function constructor_cabecera(artista_nombre,image_artist,description_artist,artista_id){
 
       console.log("HOLA");
-      if(image_artist==null || image_artist=="" || image_artist==" "){
+      if(image_artist=="null" || image_artist==null || image_artist=="" || image_artist==" "){
         image_artist="img/artist_default.jpg";
       }
       image_artist="img/artist_default.jpeg";
@@ -197,7 +197,11 @@ let artista_id
       document.getElementById("fotografia_artista").src=image_artist;
 
       document.getElementById("Artista_nombre").textContent=artista_nombre;
-      document.getElementById("Artista_descripcion").textContent=description_artist;
+      if(description_artist=="null" || description_artist==null){
+
+      }else{
+        document.getElementById("Artista_descripcion").textContent=description_artist;
+      }
 
      /*let follow_artista=document.getElementsByClassName("navbar_eventos")[0];
 
@@ -212,7 +216,7 @@ let artista_id
   function constructor_redessociales(twitter_artista,facebook_artista,instagram_artista,youtube_artista,webpage_artista){
       console.log("HOLA");
 
-  if(twitter_artista==null && instagram_artista==null && youtube_artista==null && webpage_artista==null ){
+  if((twitter_artista=="null" || twitter_artista==null) && (instagram_artista=="null" || instagram_artista==null) &&  (facebook_artista=="null" || facebook_artista==null) && (youtube_artista=="null" || youtube_artista==null) && (webpage_artista=="null" || webpage_artista==null) ){
 
     let notificacion=document.createElement("li");
     //let notificacion_titulo=document.createElement("p");
@@ -225,7 +229,7 @@ let artista_id
 
   }else{
 
-    if(twitter_artista==null){
+    if(twitter_artista=="null" || twitter_artista==null){
 
     }else{
       let redsocial=document.createElement("li");
@@ -252,7 +256,7 @@ let artista_id
     }
 
 
-    if(instagram_artista==null){
+    if(instagram_artista=="null" || instagram_artista==null){
 
     }else{
 
@@ -279,7 +283,7 @@ let artista_id
       $('#lista_redessociales').append(redsocial).listview("refresh");
     }
 
-    if(youtube_artista==null){
+    if(youtube_artista=="null" || youtube_artista==null){
 
     }else{
 
@@ -306,8 +310,35 @@ let artista_id
       $('#lista_redessociales').append(redsocial).listview("refresh");
     }
 
+    if(facebook_artista=="null" || facebook_artista==null){
 
-    if(webpage_artista==null){
+    }else{
+
+      let redsocial=document.createElement("li");
+      let enlace=document.createElement("a");
+      let nombre=document.createElement("h4");
+
+      let imagen=document.createElement("img");
+      imagen.classList.add("redessociales");
+      imagen.href="https://www.facebook.com/"+facebook_artista;
+      imagen.target="_blank";
+      enlace.classList.add("listview_no_side");
+      imagen.src="img/Iconos_compartir/Facebook.png";
+
+      nombre.textContent="YouTube";
+
+      enlace.href="https://www.youtube.com/user/"+youtube_artista;
+      enlace.target="_blank"
+      enlace.append(imagen);
+      enlace.append(nombre);
+
+      redsocial.append(enlace);
+
+      $('#lista_redessociales').append(redsocial).listview("refresh");
+    }
+
+
+    if(webpage_artista=="null" || webpage_artista==null){
 
     }else{
 
@@ -346,10 +377,13 @@ let artista_id
     let evento_a=document.createElement("a");
     evento.classList.add("listview_no_border");
 
-    if(imagen_evento==null){
+    if(imagen_evento=="null" || imagen_evento==null){
       imagen_evento="img/cartel_prueba.jpeg";
     }
 
+    //CAMBIAR LAS COSAS
+
+    imagen_evento="img/cartel_prueba.jpeg";
     evento_a.href="DatosEvento.html?evento="+id_evento;
     evento_a.target="_top";
     evento_a.classList.add("listview_no_side");

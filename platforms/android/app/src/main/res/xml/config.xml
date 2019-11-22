@@ -1,5 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="es.livevent.tlm" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Clipboard">
+        <param name="android-package" value="com.verso.cordova.clipboard.Clipboard" />
+    </feature>
+    <feature name="SharedPreferences">
+        <param name="android-package" value="com.adrianodigiovanni.sharedpreferences.CDVSharedPreferences" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="LocalNotification">
+        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
+    </feature>
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
@@ -10,28 +22,16 @@
     <feature name="Toast">
         <param name="android-package" value="nl.xservices.plugins.Toast" />
     </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <feature name="LocalNotification">
-        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
-    </feature>
-    <feature name="SharedPreferences">
-        <param name="android-package" value="com.adrianodigiovanni.sharedpreferences.CDVSharedPreferences" />
-    </feature>
-    <feature name="Clipboard">
-        <param name="android-package" value="com.verso.cordova.clipboard.Clipboard" />
-    </feature>
     <feature name="Badge">
         <param name="android-package" value="de.appplant.cordova.plugin.badge.Badge" />
     </feature>
     <name>LivEvent</name>
     <icon src="logo.png" />
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Aplicacion para gestion y creacion de eventos. 
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+        Upna developers
     </author>
     <content src="index.html" />
     <access origin="*" />

@@ -32,7 +32,7 @@ function unique_id(){
     let x=d.getTime();
     let value = x+"-LE-"+Math.random().toString(36).substring(2, 15);
     let successCallback = function() {
-        alert(value);
+        //alert(value);
       $.post("https://livevent.es/api/v1/user_create.php",{
         IMEI: value
       },function(result,status){
