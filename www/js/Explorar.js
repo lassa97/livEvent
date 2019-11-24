@@ -11,7 +11,18 @@ function check_id(){
     let sharedPreferences = window.plugins.SharedPreferences.getInstance("app");
     let key = 'id_unico';
     let successCallback = function(value) {
-        //alert(value);
+
+      $.post("https://livevent.es/api/v1/user_login.php",{
+        IMEI: value
+      },function(result,status){
+          if(status==="success"){
+            let datos=JSON.parse(JSON.stringify(result));
+            //alert(result);
+          }else{
+            alert("Debe disponer de conexion a Internet la primera vez que se conecte.");
+          }
+      }
+
       }
     let errorCallback = function(err) {
         unique_id();

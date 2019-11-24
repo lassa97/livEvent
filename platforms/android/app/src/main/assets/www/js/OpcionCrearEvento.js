@@ -1,22 +1,21 @@
 
+let datos_localizacion=["lugar","ciudad","provincia","lat","lon"];
+
 function crear_evento(){
   let artist_id= getArtistID();
   let nombre_evento=document.getElementById("name").value;
-  let localizacion_evento=document.getElementById("localizacion").value;
+  let localizacion_evento=document.getElementById("calle").value;
   let fecha_evento=document.getElementById("fecha").value;
   let hora_evento=document.getElementById("hora").value;
   let duracion_evento=document.getElementById("duracion").value;
   let descripcion_evento=document.getElementById("descripcion").value;
   let imagen_evento=document.getElementById("imagen").files[0];
 
-  alert(hora_evento);
-  alert(artist_id);
 
   let date_evento=fecha_evento+" "+hora_evento;
 
-  alert(date_evento);
 
-  if(nombre_evento=="" || localizacion_evento=="" || fecha_evento=="" || hora_evento=="" || duracion_evento=="" || imagen_evento==""){
+  if(nombre_evento=="" || localizacion_evento=="" || fecha_evento=="" || hora_evento=="" || duracion_evento=="" || imagen_evento=="" || datos_localizacion[3]=="lon"){
     try{
     window.plugins.toast.showShortCenter('Introduzca todos los campos obligatorios.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
     }catch(e){
@@ -69,7 +68,7 @@ function crear_evento(){
       datos_post.append("date",date_evento);
       datos_post.append("localization",localizacion_evento);
       datos_post.append("duration",duracion_evento);
-      datos_post.append("image",imagen_evento);
+      //datos_post.append("image",imagen_evento);
       //console.log(datos_post);
       enviar_datos(datos_post);
   }

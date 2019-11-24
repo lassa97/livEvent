@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/comun.css">
+      <script src="js/LocalizacionSeleccionar.js">  </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5I0BgjiHAqIeLoiaOu6EeJhrv4QzXC74&libraries=places&callback=initMap" async defer></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -55,6 +56,9 @@
 			    <label class="titulos_listas" for="duration"> Selecciona la duración:* </label>
   				<input id="duracion"type="time" name="duration" class="required">
 
+          <label class="titulos_listas" for="duration"> Enlace tickets: </label>
+  				<input id="tickets"type="text" name="tickets" placeholder="https://Livevent.tickets.es"> 
+
 				<label class="titulos_listas"for="description">Descripción del evento:*</label>
 				<textarea id="descripcion" placeholder="Escribe una breve descripción  (200 caráteres)" maxlength="200" name="description"></textarea><br />
 
@@ -69,7 +73,7 @@
 
 	</div>
   <script type="text/javascript" src="js/OpcionCrearEvento.js" ></script>
-  <script src="js/LocalizacionSeleccionar.js">  </script>
+
 
 </body>
 

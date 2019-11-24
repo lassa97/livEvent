@@ -23,7 +23,7 @@ function getids(){
 function login_entrevista(){
 
   //let hora_comienzo=document.getElementById("hora_comienzo").value;
-  let duration=document.getElementById("duration").value;
+  document.getElementsByClassName("preguntas");
 
 
   if(duration==""){
@@ -69,4 +69,44 @@ function enviar_datos_login(duration){
         }
       }
   );
+}
+
+//Funcion para añadir preguntas al cuestionario
+
+function anadirPregunta(){
+  let preguntas=document.getElementsByClassName("Pregunta");
+  if(preguntas.length>9){
+    alert("No se permiten más preguntas.")
+  }else{
+
+    let nPregunta=parseInt(preguntas.length)+1;
+    let pregunta_div=document.createElement("div");
+    let pregunta_label=document.createElement("label");
+    let input_div=document.createElement("div");
+    let pregunta_input=document.createElement("input");
+
+    input_div.classList.add("ui-input-text");
+    input_div.classList.add("ui-body-inherit");
+    input_div.classList.add("ui-corner-all");
+    input_div.classList.add("ui-shadow-inset");
+
+    pregunta_label.innerHTML="Pregunta "+nPregunta+":";
+    pregunta_div.classList.add("Pregunta");
+    pregunta_label.classList.add("titulos_listas");
+    pregunta_input.name="pregunta_"+nPregunta;
+    pregunta_input.placeholder="¿Pregunta.......?";
+
+        input_div.append(pregunta_input);
+
+    pregunta_div.append(pregunta_label);
+    pregunta_div.append(input_div);
+
+    document.getElementById("preguntas").append(pregunta_div);
+    if(preguntas.lenght>9){
+      $("#anadir").button("disable");
+      $("#anadir").button("refresh");
+    }
+  }
+
+
 }

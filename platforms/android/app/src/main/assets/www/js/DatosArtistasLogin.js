@@ -15,7 +15,7 @@ let artista_id
     try{
     window.plugins.toast.showShortCenter('Opción en desarrollo', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
     }catch(e){
-      //alert("Función no disponible aún.");
+      alert("Función no disponible aún.");
     }
   }
 

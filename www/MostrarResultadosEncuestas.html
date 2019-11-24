@@ -39,7 +39,7 @@
                 </div>
                 <ul data-role="listview" data-inset="false" data-theme="b" style="margin-top: 30px;">
 
-                  <li><a onclick="location.reload();">
+                  <li><a href="PerfilArtistaLogin.html" target="_top">
                     <h2>Mi perfil</h2>
                   </a>
                   </li>
@@ -77,85 +77,15 @@
           <!--MENU PARA PONER EN LAS PAGINAS-->
 
 
-            <h1 class="titulos_header">Mi perfil</h1>
+            <h1 class="titulos_header">Encuestas</h1>
               <!--BUSCADOR PARA PONER EN LAS PAGINAS
             <a style="background: none;border:none"href="Buscador.html" class="ui-btn-right ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-icon-search ui-btn-icon-notext"></a>
               BUSCADOR PARA PONER EN LAS PAGINAS-->
       </div>
-        <a href="#popupPhotoPortrait" data-rel="popup" data-position-to="window" class=" ui-shadow" data-transition="fade" >
-          <div id="Artista_imagen" style="width:100%; height:200px; background-size:cover">
-          </div>
-        </a>
 
-        <div class="ui-body-d data-theme-d">
-          <div style="padding:3%">
-          <h1 id="Artista_nombre" class="fuenteartista"></h1>    <!--Nombre artista API-->
-          <p></p>
-          <div id="Artista_descripcion" class="fuentedescripcion"></div>    <!--Descripcion artista API-->
-          </div>
-
-
-
-            <div data-role="navbar" data-iconpos="left">
-              <ul style="font-size:15px">
-                <li><a data-icon="edit" href="EditarPerfil.html" target="_top" class="navbar_editar ui-shadow" >Editar perfil</a></li>
-                <li><a href="#popupsocial" class="navbar_compartir ui-shadow" >Compartir perfil</a></li>
-              </ul>
-
-            </div>
-            </div>
             <div style="padding-top: 0px" data-role="content" class="ui-content">
-
-
-            <h3 class="titulos_listas">Eventos (<span id="NEventos">0</span>)</h3>
-              <ul id="lista_eventos" data-role="listview" data-inset="true" style="box-shadow:none">
-                <!--  <li>
-                        <a href="datos-evento.html" target="_top">
-                        <img src="img/artista_prueba.jpg">
-                        <h4>CocaCola Music Expirience</h4>
-                        </a>
-                      </li> -->
-              </ul>
-
-            <h3 class="titulos_listas">Redes Sociales</h3>
-
-              <ul id="lista_redessociales" data-role="listview" data-inset="true"  style="box-shadow:none">
-                <!--  <li>
-                        <a href="#" id="facebook" target="_blank">
-                        <img class="redessociales" src="img/youtube.png">
-                        <h4>YouTube</h4>
-                        </a>
-                      </li> -->
-              </ul>
-          <div data-role="popup" id="popupPhotoPortrait" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
-             <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right ui-alt-icon">Close</a><img id="fotografia_artista" alt="Fotografía artista">
-          </div>
-          <div data-role="panel" id="popupsocial" data-theme="d" data-position="right" data-display="overlay" class="ui-group-theme-d ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-a ui-panel-animate ui-panel-open ">
-            <ul id="listado_social" data-role="listview" data-inset="false" data-theme="d"  data-icon="false" style="border:none" >
-              <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('whatsapp',1)">
-                  <img src="img/Iconos_compartir/whatsapp.png">
-                  <h2>Whatsapp</h2>
-                </a>
-              </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('facebook',1)">
-                 <img src="img/Iconos_compartir/Facebook.png">
-                 <h2>Facebook</h2>
-               </a>
-               </li>
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('twitter',1)">
-                 <img src="img/Iconos_compartir/Twitter.png">
-                 <h2>Twitter</h2>
-               </a>
-               </li>
-
-             <!-- Ver como le pongo que al pulsar salga el link-->
-               <li class="listitem" style="border:none" ><a style="border:none" data-icon="false" onclick="share_media('paste',1)">
-                 <img src="img/Iconos_compartir/Link.png">
-                 <h2>Copiar link</h2>
-               </a>
-               </li>
-             </ul>
-          </div>
+              <h4 style="text-align:justify"> Para obtener los resultados de sus encuestas por favor escriba a info@livevent.es</h4>
+            </div>
       </div>
       <script type="text/javascript" src="js/funciones_generales.js"></script>
       <script type="text/javascript" src="js/DatosArtistasLogin.js"></script>

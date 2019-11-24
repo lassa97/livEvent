@@ -24,17 +24,25 @@
 </head>
 <body>
 
-	<div data-role="page">
+	<div data-role="page" data-theme="d">
 	    <div data-role="main" class="ui-content">
+      <h4 style="color:red">Las respuestas son calificaciones de 1 a 10</h4>
+      <h6 style="color:red">*También hay un apartado de comentarios</h6>
 			<form class="formulario" id="formContacto" name="formContacto" method="get" action="none"><br />
 
         <!--
 				<label for="date">Hora comienzo a encuestar*:</label>
 				<input id="hora_comienzo" type="time" name="date" required/><br />
       -->
-				<label class="titulos_listas" for="duration">Tiempo que estará abierta la encuesta*:</label>
-				<input id="duration" type="time" name="duration" />
+      <div id="preguntas">
+        <div class="Pregunta">
+  				<label class="titulos_listas" >Pregunta 1:</label>
+  				<input type="text" name="pregunta_1" placeholder="¿Cuanto te ha gustado el evento?" />
+        </div>
+      </div>
+
         <!-- Tal vez poner una mierda para que no pueda hacer todas las encuestas que quiera-->
+        <button id="anadir" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-a ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" onclick="anadirPregunta();"></button>
 				<input  onclick="login_entrevista();" type="button" value="Crear Encuesta" />
 			</form>
 		</div>

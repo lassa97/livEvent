@@ -22,9 +22,9 @@
     <script id="script" src="js/jquery.mobile.nestedlists.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <!--Esta no estaba
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5I0BgjiHAqIeLoiaOu6EeJhrv4QzXC74&libraries=places&callback=initMap&sensor=true" async defer></script>
-      Esta no estaba-->
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/SocialSharing.js"></script>
     <title>Eventos</title>
@@ -34,7 +34,6 @@
 
       <div data-role="header" >
         <a style="background:lightgray;border:none" onclick="retroceso_evento();" class="ui-btn ui-nodisc-icon  ui-corner-all ui-icon-arrow-l ui-btn-icon-notext"></a>
-
       </div>
         <a href="#popupPhotoPortrait" data-rel="popup" data-position-to="window" class=" ui-shadow" data-transition="fade" >
           <div  id="Cartel_concierto" style="width:100%; height:200px;background-size:cover">
@@ -61,28 +60,28 @@
             <ul id="info_artista" data-role="listview" data-inset="true" style="box-shadow:none" >
 
             </ul>
-            <!--
+
             <h3 class="titulos_listas">Tickets</h3>
             <ul data-role="listview" data-inset="true"  >
               <li id="tickets_info" style="border:none">
               </li>
-            </ul>-->
+            </ul>
             <h3 class="titulos_listas" >Notificaciones (<span id="NNotificaciones">0</span>)</h3>
             <ul id="lista_notificaciones" data-role="listview" data-inset="true"  class="listview_no_border" >
             </ul>
-            <!-- MAPA para los eventos
+
               <h3 class="titulos_listas">Como llegar</h3>
 
                 <ul data-role="listview" data-inset="true"  class="listview_no_border">
                   <li id="localizacion_local" class="listview_no_border">
-                    <h1>Cafe Zentral</h1>
+                    <h1 id="nombre_local">Cafe Zentral</h1>
                   </li>
                   <li id="map" class="listview_no_border"></li>
                   <li id="localizacion_datos" class="listview_no_border">
-                    <p>Mayor 117</p>
-                    <p>Pamplona</p>
+                    <p style="font-size:15px"><span id="calle_evento">Mayor 117 </span>, <span id="ciudad_evento">Pamplona</span></p>
                   </li>
                 </ul>
+                  <!-- MAPA para los eventos
 -->
           </div>
           <div data-role="popup" id="popupPhotoPortrait" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
@@ -119,9 +118,9 @@
              <!--<div style="padding:10px">link:<span>http://adasdasdasdsadasdasd</span></div>-->
           </div>
         </div>
-        <!--Esta no estaba
+
         <script src="js/LocalizacionSeleccionar.js">  </script>
-          Esta no estaba-->
+                <!--Esta no estabaEsta no estaba-->
         <script type="text/javascript" src="js/funciones_generales.js"></script>
         <script type="text/javascript" src="js/DatosEvento.js" ></script>
 

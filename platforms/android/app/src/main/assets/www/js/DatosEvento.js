@@ -130,7 +130,7 @@
     let datos_tickets=document.createElement("p");
 
     if(link_tickets===null){
-      datos_tickets="Información no disponible";
+      datos_tickets="Información no disponible.";
       objeto_tickets.append(datos_tickets);
     }else{
 
@@ -198,7 +198,7 @@
                 //console.log(JSON.stringify(datos));
                 let datos_evento=datos['msg'];
                 constructor_cabecera(datos_evento['description'],datos_evento['localization'],datos_evento['date'],datos_evento['image'],id);
-                //constructor_tickets(null);
+                constructor_tickets(null);
                 montar_notificaciones(datos_evento['artistID'],id);
                 montar_artista(datos_evento['artistID']);
             },error: function(error){
@@ -260,7 +260,7 @@
             let lista_notificaciones=document.getElementById("lista_notificaciones");
             let notificacion=document.createElement("li");
             //let notificacion_titulo=document.createElement("p");
-            notificacion.textContent="No hay notificaciones aun";
+            notificacion.textContent="No hay notificaciones aún.";
             notificacion.classList.add("listview_no_border");
             //notificacion.append(notificacion_titulo);
 

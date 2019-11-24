@@ -79,7 +79,7 @@
 
   function montar_eventos(id){
 
-  $.ajax({url: "https://livevent.es/api/v1/event_list.php?artistID="+id,
+  $.ajax({url: "https://livevent.es/api/v1/event_list.php?artistID="+id+"&encuesta=1",
    success: function(result,status){
 
           let datos=JSON.parse(JSON.stringify(result));

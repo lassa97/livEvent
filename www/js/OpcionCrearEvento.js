@@ -1,5 +1,5 @@
 
-let datos_localizacion=["ciudad","provincia","lat","lon"];
+let datos_localizacion=["lugar","ciudad","provincia","lat","lon"];
 
 function crear_evento(){
   let artist_id= getArtistID();
@@ -9,14 +9,12 @@ function crear_evento(){
   let hora_evento=document.getElementById("hora").value;
   let duracion_evento=document.getElementById("duracion").value;
   let descripcion_evento=document.getElementById("descripcion").value;
+  let tickets_evento=document.getElementById("tickets").value;
   let imagen_evento=document.getElementById("imagen").files[0];
 
-  alert(hora_evento);
-  alert(artist_id);
 
   let date_evento=fecha_evento+" "+hora_evento;
 
-  alert(date_evento);
 
   if(nombre_evento=="" || localizacion_evento=="" || fecha_evento=="" || hora_evento=="" || duracion_evento=="" || imagen_evento=="" || datos_localizacion[3]=="lon"){
     try{
@@ -31,6 +29,10 @@ function crear_evento(){
       alert('El nombre no pueden tener más de 50 caracteres.');
     }*/
   }else{
+
+    if(tickets_evento!=""){
+      datos_post.append("tickets",tickets_evento);
+    }
 
     if(imagen_evento){
       let reader= new FileReader();
@@ -52,7 +54,7 @@ function crear_evento(){
             datos_post.append("duration",duracion_evento);
             datos_post.append("image",imagen_evento);
             //console.log(datos_post);
-            enviar_datos(datos_post);
+
           }else{
             try{
             window.plugins.toast.showShortCenter('Introduzca una foto de mayor resolución.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
@@ -73,8 +75,8 @@ function crear_evento(){
       datos_post.append("duration",duracion_evento);
       //datos_post.append("image",imagen_evento);
       //console.log(datos_post);
-      enviar_datos(datos_post);
-  }
+    }
+  enviar_datos(datos_post);
   }
 }
 function getArtistID(){

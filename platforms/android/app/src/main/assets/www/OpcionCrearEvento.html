@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/comun.css">
+      <script src="js/LocalizacionSeleccionar.js">  </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5I0BgjiHAqIeLoiaOu6EeJhrv4QzXC74&libraries=places&callback=initMap" async defer></script>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -44,11 +45,9 @@
 
             <input id="searchInput" class="controls" type="text" placeholder="Introduzca una direccion">
             <div id="map"></div>
-            <ul id="geoData">
-              <li style="display:none">Calle: <span id="calle"></span></li>
-              <li style="display:none">Ciudad: <span id="ciudad"></span></li>
+            <ul data-role="listview"id="geoData" data-inset="true">
+              <li style="display:block"> <p >Dirección: <span style="white-space:normal" id="calle"></span></p></li>
             </ul>
-              <button  onclick="guardar_localizacion();" data-mini="true" >Confirmar</button>
           </div>
 
   				<label class="titulos_listas" for="timestart"> Selecciona la hora de comienzo:* </label>
@@ -71,7 +70,7 @@
 
 	</div>
   <script type="text/javascript" src="js/OpcionCrearEvento.js" ></script>
-  <script src="js/LocalizacionSeleccionar.js">  </script>
+
 
 </body>
 

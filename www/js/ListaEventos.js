@@ -16,11 +16,11 @@ function getids(){
 
   let variables_2=variables1[1].split("=");
   let flag=variables_2[1].split("&")[0];
+  let check=variables_2[2].split("&")[0];
+  let id_user=variables_2[3];
 
-  let check=variables_2[2];
 
-
-  getEvents(flag,check);
+  getEvents(flag,check,id_user);
 
 }
 
@@ -62,9 +62,9 @@ function constructor_lista(id_evento,event_img,event_name,event_date){
 //---------------------------------------------------------------------------------------
 
 
-function getEvents(flag,check){
+function getEvents(flag,check,id_user){
 
-    $.ajax({url: "https://livevent.es/api/v1/event_list.php?flag="+flag,success: function(result){
+    $.ajax({url: "https://livevent.es/api/v1/event_list.php?flag="+flag+"&userID="+id_user,success: function(result){
               let Eventos_listado=JSON.parse(JSON.stringify(result));
               Lista_eventos=Eventos_listado['msg']['events'];
               let contador=0;

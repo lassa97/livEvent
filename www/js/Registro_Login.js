@@ -38,82 +38,41 @@ function registro_artista(){
       alert('El email y el nombre no pueden tener más de 50 caracteres.');
     }
   }else{
+    let datos_post=new FormData();
+    datos_post.append("email",email_artista);
+    datos_post.append("password",password_artista);
+    datos_post.append("name",nombre_artista);
+    datos_post.append("gender",gender_artista);
 
-    if(descripcion_artista==""){
-      descripcion_artista=null;
+    if(descripcion_artista!=""){
+        datos_post.append("description",descripcion_artista);
     }
-    if(twitter_artista==""){
-      twitter_artista=null;
+    if(twitter_artista!=""){
+      datos_post.append("twitter",twitter_artista);
     }
-    if(youtube_artista==""){
-      youtube_artista=null;
+    if(youtube_artista!=""){
+      datos_post.append("youtube",youtube_artista);
     }
-    if(facebook_artista==""){
-      facebook_artista=null;
+    if(facebook_artista!=""){
+      datos_post.append("facebook",facebook_artista);
     }
-    if(instagram_artista==""){
-      instagram_artista=null;
+    if(instagram_artista!=""){
+      datos_post.append("instagram",instagram_artista);
     }
-    if(webpage_artista==""){
-      webpage_artista=null;
+    if(webpage_artista!=""){
+      datos_post.append("webpage",webpage_artista);
     }
     if(imagen_artista){
       let reader= new FileReader();
       reader.readAsDataURL(imagen_artista);
       let img= new Image();
       reader.onloadend = function() {
-          //img.src= reader.result;
-          //img.style.display="none";
 
-          //img.onloadend=function(){
-            //let height=img.height;
-            //let width=img.width;
-
-          //if(height>300 && width>300){
-
-            let datos_post=new FormData();
-            datos_post.append("email",email_artista);
-            datos_post.append("password",password_artista);
-            datos_post.append("name",nombre_artista);
-            datos_post.append("gender",gender_artista);
-            datos_post.append("description",descripcion_artista);
-            datos_post.append("image",imagen_artista);
-            datos_post.append("twitter",twitter_artista);
-            datos_post.append("facebook",facebook_artista);
-            datos_post.append("instagram",instagram_artista);
-            datos_post.append("youtube",youtube_artista);
-            datos_post.append("webpage",webpage_artista);
             datos_post.append("image",imagen_artista);
             console.log(datos_post);
-            enviar_datos(datos_post);
-            /*
-          }else{
-            try{
-            window.plugins.toast.showShortCenter('Introduzca una foto de mayor resolución.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
-            }catch(e){
-              alert('Introduzca una foto de mayor resolución.');
-            }
-          }*/
-        //}
-        //document.getElementById("description").append(img);
       }
-    }else{
-      imagen_artista=null;
-      let datos_post=new FormData();
-      datos_post.append("email",email_artista);
-      datos_post.append("password",password_artista);
-      datos_post.append("name",nombre_artista);
-      datos_post.append("gender",gender_artista);
-      datos_post.append("description",descripcion_artista);
-      datos_post.append("image",imagen_artista);
-      datos_post.append("twitter",twitter_artista);
-      datos_post.append("facebook",facebook_artista);
-      datos_post.append("instagram",instagram_artista);
-      datos_post.append("youtube",youtube_artista);
-      datos_post.append("webpage",webpage_artista);
-      datos_post.append("image",imagen_artista);
-      enviar_datos(datos_post);
-  }
+    }
+    enviar_datos(datos_post);
   }
 }
 //Funcion para coger datos de login

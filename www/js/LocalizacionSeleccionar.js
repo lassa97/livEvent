@@ -77,13 +77,14 @@ function initMap() {
         }*/
         document.getElementById('calle').parentNode.style.display="block";
         //document.getElementById('ciudad').parentNode.style.display="block";
+        datos_localizacion[0]=place['name'];
         document.getElementById('calle').innerHTML = place['formatted_address'];
-        datos_localizacion[0]=place.address_components[0].long_name;
-        datos_localizacion[1]=place.address_components[1].long_name;
+        datos_localizacion[1]=place.address_components[0].long_name;
+        datos_localizacion[2]=place.address_components[1].long_name;
         //document.getElementById('ciudad').innerHTML = place.address_components[0].short_name;
       //    document.getElementsByClassName("ui-input-text")[2].style.display="hide";
-        datos_localizacion[2]= place.geometry.location.lat();
-        datos_localizacion[3]= place.geometry.location.lng();
+        datos_localizacion[3]= place.geometry.location.lat();
+        datos_localizacion[4]= place.geometry.location.lng();
         console.log(datos_localizacion);
     });
 }
