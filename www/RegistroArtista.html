@@ -30,8 +30,13 @@
 				<label class="titulos_listas" for="name">Nombre artista*:</label>
 				<input id="name" type="text" name="name" placeholder="Nombre artista" maxlength="50" required /><br />
 
-				<label class="titulos_listas"  for="gender">Indique su género musical*:</label>
+				<label class="titulos_listas"  for="gender">Indique su tipo de evento ó género musical*:</label>
 			    <select id="gender" name="gender" class="required" >
+			       <option value="Tipo de evento" style="font-weight: bold;" disabled>Tipo de evento</option>
+			       <option value="Teatro" selected>Teatro</option>
+			       <option value="Comedia">Comedia</option>
+			       <option value="Otro">Otro</option>
+			       <option value="Música" style="font-weight: bold;" disabled>Música</option>	
 			       <option value="Blues">Blues</option>
 			       <option value="Clásico">Clásico</option>
 			       <option value="Country">Country</option>

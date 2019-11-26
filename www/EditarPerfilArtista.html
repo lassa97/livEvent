@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline'; style-src * 'unsafe-inline'; media-src *; img-src * data:">
+
+
+        <link rel="stylesheet" href="themes/custom.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  		<link rel="stylesheet" type="text/css" href="css/registro.css" />
+              <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/comun.css" />
+    	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    	<script src="js/jquery-1.11.3.min.js"></script>
+              <script src="js/bootstrap.min.js"></script>
+    	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+    	<script id="script" src="js/jquery.mobile.nestedlists.js"></script>
+    <title>Acceso</title>
+</head>
+<body>
+	    <div data-role="header" data-theme="d">
+
+          <h1 class="titulos_header">Editar perfil</h1>
+
+    </div>
+
+    <div data-role="main" class="ui-content">
+		<form class="formulario" id="formArtista" name="formContacto"><br />
+
+				<label class="titulos_listas" for="name">Nombre:</label>
+				<input type="text" name="name" placeholder="Nombre">
+
+				<label class="titulos_listas"  for="description">Descripción:</label>
+				<textarea id="description" placeholder="Actualiza tu descripción (40 caráteres)" maxlength="60" name="description"></textarea><br />
+
+				<label class="titulos_listas" for="image">Cambiar imagen de perfil:</label>
+		        <div>
+		            <input type="file" name="image"/>
+		        </div>
+        		<br/>
+
+			    <label  class="titulos_listas"  for="twitter">Redes Sociales: </label>
+			    <input id="twitter" type="text" name="twitter" placeholder="Twitter: livevent" />
+
+			    <label class="titulos_listas" for="youtube"></label>
+			    <input id="youtube" type="text" name="youtube" placeholder="Youtube: livevent" />
+
+			    <label class="titulos_listas" for="facebook: "></label>
+			    <input id="facebook" type="text" name="facebook"  placeholder="Facebook: livevent" />
+
+			    <label class="titulos_listas" for="instagram"></label>
+			    <input id="instagram" type="text" name="instagram"  placeholder="Instagram: livevent" />
+
+			    <label class="titulos_listas" for="webpage"></label>
+			    <input id="webpage" type="text" name="webpage" placeholder="Webpage: http://..." /><br />
+
+
+				<input type="button" value="Actualizar" onclick="actualizar_artista();"/>
+			</form>
+		</div>
+	</div>
+  <script src="js/EditarPerfil.js"></script>
+  <script src="js/funciones_generales.js"></script>
+  <script src="js/ActualizarPerfilArtista.js"></script>
+
+
+
+</body>
+</html>
