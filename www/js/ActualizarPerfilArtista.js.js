@@ -82,7 +82,7 @@ function actualizar_artista(){
 
 function enviar_datos(datos_post){
   $.ajax({
-  url: "https://livevent.es/api/v1/artist_create.php",
+  url: "https://livevent.es/api/v1/artist_edit.php",
   type: "POST",
   data :datos_post,
   processData: false,

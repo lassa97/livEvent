@@ -1,5 +1,3 @@
-getids();
-
 //Cojo el id del artista y el de la encuesta
 
 function getids(){
@@ -8,11 +6,13 @@ function getids(){
   let artist_id=variables1[1].split("=")[1].split("&")[0];
   let survey_id=variables1[1].split("=")[2];
   montar_encuesta(artist_id,survey_id);
+  console.log('artist_id');
 }
 
 
-function constructor_encuestas(id_artista,id_evento,score_encuesta,opinion_encuesta){
+function constructor_encuestas(opinion_encuesta){
 
+    console.log(opinion_encuesta);
     let lista_encuesta=document.getElementById("lista_encuesta");
     let encuestas=document.createElement("li");
     let encuestas_enlace=document.createElement("a");
@@ -20,13 +20,9 @@ function constructor_encuestas(id_artista,id_evento,score_encuesta,opinion_encue
     encuestas.classList.add("listview_no_border");
     encuestas_enlace.classList.add("listview_no_side");
 
-    let encuesta_score=document.createElement("h4");
-    encuesta_score.textContent=score_encuesta;
-
-    let encuesta_opinion=document.createElement("p");
+    let encuesta_opinion=document.createElement("h4");
     encuesta_opinion.textContent=opinion_encuesta;
 
-    encuestas_enlace.append(encuesta_score);
     encuestas_enlace.append(encuesta_opinion);
 
     encuestas.append(encuestas_enlace);
@@ -42,18 +38,63 @@ function montar_encuesta(artist_id,survey_id){
     artist_id=parseInt(artist_id);
 
 
-    $.post("https://livevent.es/api/v1/survey_list.php",{
-      artistID: artist_id,
-      surveyID:survey_id
-    },function(result,status){
+    // $.get("https://livevent.es/api/v1/survey_result.php",{
+    //   artistID: artist_id,
+    //   surveyID: survey_id
+    // },function(result,status){
+
+      $.ajax({url: "https://livevent.es/api/v1/survey_result.php?artistID="+artist_id+"&surveyID="+survey_id,
+      success: function(result,status){
         //console.log(status);
         if(status==="success"){
           let datos=JSON.parse(JSON.stringify(result));
-          let datos_encuesta=datos['info']['surveys'];
-		  document.getElementById("Encuestas").textContent=datos_encuesta.length;
+
+          let variable ={};
+          for (x=0;x<11;x++){
+            var n = x.toString();
+            variable[x]=[n,datos['msg'][x]];
+          }
+
+
+// GRAFICO 3D
+
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+        
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Valoración', 'Score'],
+              variable[0],
+              variable[1],
+              variable[2],
+              variable[3],
+              variable[4],
+              variable[5],
+              variable[6],
+              variable[7],
+              variable[8],
+              variable[9],
+              variable[10]
+              ]);
+
+            var options = {
+              title: 'Resultado valoración encuesta',
+              is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+          }
+
+// FIN GRAFICO
+
+          
+          let contador_encuesta = Object.keys(datos.comments.opinions).length;
+
+		      document.getElementById("Encuestas").textContent=contador_encuesta;
 		        
-		        if(datos_encuesta.length==0){
-		        	let lista_encuesta=document.getElementById("lista_encuesta");
+		        if(contador_encuesta==0){
+		        	  let lista_encuesta=document.getElementById("lista_encuesta");
 		            let encuestas=document.createElement("li");
 		            //let encuesta_opinion=document.createElement("p");
 		            encuestas.textContent="No hay resultados de encuestas aún.";
@@ -63,14 +104,14 @@ function montar_encuesta(artist_id,survey_id){
 	            $("#lista_encuesta").append(encuestas).listview("refresh");
 
 	            }else{
-	            	let cont_encuestas=0;
-		            while(cont_encuestas<(datos_encuesta.length)){
-		              let datos_single=datos_encuesta[cont_encuestas];
-		              datos_single['notificationimage']=null;
-		              constructor_encuestas(artist_id,survey_id,datos_single['score'],datos_single['opinion']);
-		              cont_encuestas++;
+                console.log(contador_encuesta);
+                for (x=0;x<contador_encuesta;x++){
+		              let datos_single=datos['comments']['opinions'][x]['opinion'];
+                  //console.log(datos_single);
+		              constructor_encuestas(datos_single);
 		            }
-	        	}
-	    }
-  	}
+	        	  }
+	      }
+  	  }
+    });
 }
