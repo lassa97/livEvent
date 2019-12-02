@@ -87,7 +87,8 @@ function montar_encuesta(artist_id,survey_id){
           }
 
 // FIN GRAFICO
-
+          
+          console.log(datos.comments.opinions);
           
           let contador_encuesta = Object.keys(datos.comments.opinions).length;
 

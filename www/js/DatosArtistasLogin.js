@@ -25,7 +25,13 @@ let artista_id
   //
   //---------------------------------------------------------------------------------------
 
+  function artistID(){
+    let url= document.URL;
+    let variables1=url.split("?");
+    let artist_id=variables1[1].split("=")[1];
+    window.open("EditarPerfilArtista.html?artistID="+artist_id,"_top");
 
+  }
 
 
   function getids(){
