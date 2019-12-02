@@ -352,3 +352,11 @@ function logout(){
   alert(e);
 }
 }
+
+function resultado(){
+  let url= document.URL;
+  let variables1=url.split("?");
+  let artist_id=variables1[1].split("=")[1];
+  window.open("MostrarEncuestas.html?artistID="+artist_id,"_top");
+}
+
