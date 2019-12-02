@@ -74,10 +74,10 @@ function actualizar_artista(){
 			    datos_post.append("instagram",instagram_artista);
 			    datos_post.append("youtube",youtube_artista);
 			    datos_post.append("webpage",webpage_artista);
-			    console.log(datos_post);
+			    //console.log(datos_post);
 			    enviar_datos(datos_post,id);
 			  // }
-			  console.log(imagen_artista);
+			  //console.log(imagen_artista);
 		    
     }  
     });
@@ -86,19 +86,18 @@ function actualizar_artista(){
 
 function enviar_datos(datos_post,id){
   $.ajax({
-  url: "https://livevent.es/api/v1/artist_edit.php?",
+  url: "https://livevent.es/api/v1/artist_edit.php",
   type: "POST",
   data :datos_post,
   processData: false,
   contentType: false,
   success:  function(result,status){
-  	console.log(result);
-  	console.log(status);
+  	//console.log(result);
       if(status==="success"){
       //   let datos=JSON.parse(JSON.stringify(result));
         if(result['msg']=="Artista editado correctamente"){
           try{
-	          window.plugins.toast.showShortCenter('Usuario creado correctamente.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
+	          window.plugins.toast.showShortCenter('Artista actualizado correctamente.', function(a){console.log('toast success: ' + a)}, function(b){alert('toast error: ' + b)});
 	          window.open("PerfilArtistaLogin.html?id="+id,"_top");
           }catch(e){
             alert('Usuario creado correctamente.');
