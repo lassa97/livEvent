@@ -24,3 +24,9 @@ livEvent es la aplicación que gestiona eventos de todo tipo, promocionándolos 
 - Podrás opinar que te ha parecido el evento que has acudido con una encuesta que desplega livEvent.
 
 - ¿ERES ARTISTA? Este es tu sitio. Promocionate creandote un perfil en LIVEVENT ¡¡tardas 1 minuto!!
+
+[![html_badge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![css_badge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+[![js_badge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
+
+Made by Oscar del Rio (delrio.107420@e.unavarra.es), Tomás Hernández (tomashq98@gmail.com) and [Fermín Lassa](https://github.com/lassa97)
