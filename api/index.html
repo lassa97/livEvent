@@ -1,0 +1,1301 @@
+
+            <!doctype html>
+            <html>
+                <head>
+                    <meta charset="utf-8">
+		    <link rel="icon" href="https://livevent.es/logo.png">
+                    <link rel="stylesheet" href="/usr/share/com.github.lainsce.quilter/highlight.js/styles/default.min.css" />
+                    <script src="/usr/share/com.github.lainsce.quilter/highlight.js/lib/highlight.min.js"></script>
+                    <script>hljs.initHighlightingOnLoad();</script>
+                    
+                    <link rel="stylesheet" href="/usr/share/com.github.lainsce.quilter/font/serif.css" />
+                    <style>"
+    html {
+      font-size: 1rem;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.66rem;
+      width: 100%;
+      color: #191919;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-style: bold;
+      margin-top: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    h4 {
+      font-size: 1.125rem;
+    }
+
+    h5 {
+      font-size: 1.1rem;
+    }
+
+    h6 {
+      font-size: 1rem;
+    }
+    small {
+      font-size: .7em;
+    }
+
+    img,
+    canvas,
+    iframe,
+    video,
+    select,
+    textarea {
+      display: block;
+      max-width: 50%;
+    }
+
+    body {
+      color: #333;
+      background-color: #FFF;
+      line-height: 1.4rem;
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    table th {
+      font-weight: bold;
+      background-color: #dddddd;
+    }
+
+    table th,
+    table td {
+      padding: 8px 13px;
+      border: 1px solid #F0F0F0;
+    }
+
+    table tr {
+      border-top: 1px solid #F0F0F0;
+    }
+
+    img {
+      height: auto;
+      margin: 0 auto;
+    }
+
+    a,
+    a:visited,
+    a:hover,
+    a:focus,
+    a:active {
+      color: #0073c5;
+    }
+
+    code{
+      display: inline-block;
+      padding: 0 0.25rem;
+      background-color: #F0F0F0;
+      border: 1px solid #F0F0F0;
+      border-radius: 4px;
+      font-family: 'Quilt Mono', monospace;
+      font-weight: normal;
+    }
+
+    pre code{
+      display: block;
+      margin: 1rem auto;
+      overflow-x: scroll;
+      padding: 0.5em;
+    }
+
+    blockquote {
+      margin: 0;
+      border-left: 5px solid #8d8d8d;
+      font-style: italic;
+      padding-left: .8rem;
+      margin-left: .8rem;
+      text-align: left;
+    }
+
+    blockquote > p {
+      color: inherit;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    ul>li {
+      font-size: 18px;
+    }
+
+    hr {
+      overflow: visible;
+      padding: 0;
+      border: none;
+      color: inherit;
+      text-align: center;
+    }
+    hr:after {
+      content: "...";
+      letter-spacing: .6em;
+      display: inline-block;
+      position: relative;
+      top: -0.3rem;
+      font-size: 1.65em;
+      padding: 0 0.25em;
+      background: inherit;
+    }
+  "</style>
+                </head>
+                <body>
+                    <div class="markdown-body">
+                        <h1 id="LivEvent's-API-REST">LivEvent&rsquo;s API REST</h1>
+
+<p><a href="https://livevent.es"><img src="https://livevent.es/logo.png" title="Livevent Icon" alt="LivEvent" /></a></p>
+
+<blockquote><p>Endpoint: <a href="https://livevent.es/api">https://livevent.es/api</a></p></blockquote>
+
+<h2 id="Indice">Indice</h2>
+
+<pre><code class="json  ">{  
+    "Registrar artistas" : "artist_create.php",  
+    "Editar artistas" : "artist_edit.php",  
+    "Mostrar artistas" : "artist_list.php",  
+    "Sesión de artistas" : "artist_login.php",  
+    "Crear eventos" : "event_create.php",  
+    "Eliminar eventos" : "event_delete.php",  
+    "Editar eventos" : "event_edit.php",  
+    "Mostrar eventos" : "event_list.php",  
+    "Crear notificaciones" : "notification_create.php",  
+    "Eliminar notificaciones" : "notification_delete.php",  
+    "Mostrar notificaciones" : "notification_list.php",  
+    "Responder encuesta" : "survey_answer.php",  
+    "Crear encuesta" : "survey_create.php",  
+    "Mostrar encuestas" : "survey_list.php",  
+    "Resultados encuesta" : "survey_result.php",  
+    "Registrar usuarios" : "user_create.php",  
+    "Sesión de usuarios" : "user_login.php"  
+}  
+</code></pre>
+
+<h2 id="Registrar-artistas">Registrar artistas</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/artist_create.php">artist_create.php</a></em><br/>
+Permite registrar un artista en la aplicación.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "email" : "string, required",  
+    "password" : "string, required",  
+    "name" : "string, required",  
+    "gender" : "string, required",  
+    "description" : "string",  
+    "twitter" : "string",  
+    "facebook" : "string",  
+    "instagram" : "string",  
+    "webpage" : "string"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Artista registrado correctamente",  
+    "name" : "Example"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir un email, una contraseña, un nombre y un género"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Ya existe un artista con ese nombre"  
+}  
+</code></pre>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Ese email ya esta registrado"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "email=mail@example.com&amp;password=password&amp;name=JavaStriker&amp;gender=Rock" -X POST https://livevent.es/api/v1/artist_create.php  
+</code></pre>
+
+<h2 id="Editar-artistas">Editar artistas</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/artist_edit.php">artist_edit.php</a></em><br/>
+Permite a un artista modificar uno o varios campos de su perfil.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">       Campo       </th>
+<th style="text-align:center;">       Label       </th>
+<th style="text-align:center;">       Valor       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">  Email            </td>
+<td style="text-align:center;">  email            </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Contraseña       </td>
+<td style="text-align:center;">  password         </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Nombre           </td>
+<td style="text-align:center;">  name             </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Género artístico </td>
+<td style="text-align:center;">  gender           </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Descripción      </td>
+<td style="text-align:center;">  description      </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Twitter          </td>
+<td style="text-align:center;">  twitter          </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Facebook         </td>
+<td style="text-align:center;">  facebook         </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Instagram        </td>
+<td style="text-align:center;">  instagram        </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Youtube          </td>
+<td style="text-align:center;">  youtube          </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Página web       </td>
+<td style="text-align:center;">  webpage          </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+<pre><code class="json  ">{  
+    "parameter1" : "string, required",  
+    "parameter2" : "string",  
+    "parameter3" : "string",  
+    "parameter4" : "string",  
+    "parameter5" : "string",  
+    "parameter6" : "string",  
+    "parameter7" : "string",  
+    "parameter8" : "string",  
+    "parameter9" : "string",  
+    "parameter10" : "string"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Artista editado correctamente"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir algún campo a modificar"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario ser artista para poder usar esta funcionalidad"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "webpage=example.com" -X POST https://livevent.es/api/v1/artist_edit.php  
+foo@foo:~$ curl -d "email=mail@example.com&amp;description=Una banda local de rock&amp;gender=Rock" -X POST https://livevent.es/api/v1/artist_edit.php  
+foo@foo:~$ curl -d "gender=Danzas&amp;email=mail@example.com&amp;description=Un grupo de danzas local" -X POST https://livevent.es/api/v1/artist_edit.php  
+</code></pre>
+
+<h2 id="Mostrar-artistas">Mostrar artistas</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>GET</strong> <em>/v1/<a href="https://livevent.es/api/v1/artist_list.php">artist_list.php</a></em><br/>
+Permite listar todos los artistas existentes u obtener toda la información sobre ese artista.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "artistID" : "integer"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "artists" :   
+            {  
+                "artistID" : "1",  
+                "name" : "Example",  
+                "description" : "Some data about me",  
+                "image" : "img/artists/Example"  
+            },  
+            {  
+                "artistID" : "2",  
+                "name" : "Dollar",  
+                "description": null,  
+                "image" : "img/artists/Dollar"  
+            }  
+     }  
+}  
+</code></pre>
+
+<blockquote><p>Usando la opción de <strong>artistID</strong></p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "name" : "Example",  
+        "description" : "Some data about me",  
+        "image" : "img/artists/Example",  
+        "twitter" : "Example",  
+        "facebook" : "Example",  
+        "instagram" : null,  
+        "webpage" : null  
+    }  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -X GET https://livevent.es/api/v1/artist_list.php  
+foo@foo:~$ curl -d "artistID=2" -X GET https://livevent.es/api/v1/artist_list.php  
+</code></pre>
+
+<h2 id="Sesión-de-artistas">Sesión de artistas</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/artist_login.php">artist_login.php</a></em><br/>
+Permite registrar un usuario en la aplicación.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "email" : "string, required",  
+    "password" : "string, required"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "artistID" : 5,  
+    "name" : "Artista"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Debes introducir un token"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Email o contraseña incorrectas"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "email=info@example.com&amp;password=password" -X POST https://livevent.es/api/v1/artist_login.php  
+</code></pre>
+
+<h2 id="Crear-eventos">Crear eventos</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/event_create.php">event_create.php</a></em><br/>
+Permite crear un evento y su encuesta en la aplicación.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "name" : "string, required",  
+    "description" : "string, required",  
+    "date" : "date, required",  
+    "duration" : "time",  
+    "localization" : "string, required"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Evento y encuesta creadas correctamente",  
+    "name" : "Concierto"  
+}  
+</code></pre>
+
+<blockquote><p>Si la encuesta no se crea automáticamente, usar <a href="https://livevent.es/api/v1/survey_create.php">survey_create.php</a> para crearla manualmente.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Evento creado correctamente, encuesta no creada",  
+    "name" : "Concierto"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Ya existe ese evento"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir nombre, descripción, fecha y localización del evento"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "name=Concierto&amp;description=New disc&amp;date=YYYY-MM-DD hh:mm:ss&amp;duration=hh:mm:ss&amp;localization=Fake Street 123" -X POST https://livevent.es/api/v1/event_create.php  
+</code></pre>
+
+<h2 id="Eliminar-eventos">Eliminar eventos</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/event_delete.php">event_delete.php</a></em><br/>
+Permite a un artista eliminar alguno de sus eventos.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "eventID" : "integer"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "OK"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Introduce un evento a eliminar"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario ser artista para poder usar esta funcionalidad"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "eventID=12" -X POST https://livevent.es/api/v1/event_delete.php  
+</code></pre>
+
+<h2 id="Editar-eventos">Editar eventos</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/event_edit.php">event_edit.php</a></em><br/>
+Permite a un artista modificar información sobre alguno de sus eventos.</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">       Campo       </th>
+<th style="text-align:center;">       Label       </th>
+<th style="text-align:center;">       Valor       </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">  Nombre           </td>
+<td style="text-align:center;">  name             </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Descripción      </td>
+<td style="text-align:center;">  description      </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Fecha            </td>
+<td style="text-align:center;">  date             </td>
+<td style="text-align:center;">  date             </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Duración         </td>
+<td style="text-align:center;">  duration         </td>
+<td style="text-align:center;">  time             </td>
+</tr>
+<tr>
+<td style="text-align:center;">  Ubicación        </td>
+<td style="text-align:center;">  localization     </td>
+<td style="text-align:center;">  string           </td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+
+<pre><code class="json  ">{  
+    "eventID" : "integer, required",  
+    "parameter1" : "string, required",  
+    "parameter2" : "string",  
+    "parameter3" : "string",  
+    "parameter4" : "string",  
+    "parameter5" : "string"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Evento editado correctamente"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir algún campo a modificar"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario ser artista para poder usar esta funcionalidad"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "eventID=10&amp;duration=hh:mm:ss" -X POST https://livevent.es/api/v1/event_edit.php  
+foo@foo:~$ curl -d "eventID=8&amp;localization=UPNA (Campus de Arrosadía s/n)&amp;date=YYYY-MM-DD hh:mm:ss" -X POST https://livevent.es/api/v1/event_edit.php  
+</code></pre>
+
+<h2 id="Mostrar-eventos">Mostrar eventos</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>GET</strong> <em>/v1/<a href="https://livevent.es/api/v1/event_list.php">event_list.php</a></em><br/>
+Permite listar todos los eventos existentes. Se puede filtrar para ver los eventos de un artista concreto, ver los eventos actuales, anteriores o posteriores u obtener información de un evento concreto.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "flag" : "integer"  
+}  
+</code></pre>
+
+<pre><code class="json  ">{  
+    "artistID" : "integer"  
+}  
+</code></pre>
+
+<pre><code class="json  ">{  
+    "eventID" : "integer"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<blockquote><p>Usando la opción de <strong>flag</strong><br/>
+<strong>1:</strong> Pasado<br/>
+<strong>2:</strong> Presente<br/>
+<strong>3:</strong> Futuro</p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "events" :   
+            {  
+                "eventID" : "19",  
+                "name" : "Rueda de prensa",  
+                "description" : "Presentación de nueva exposición",  
+                "image" : "img/events/Exposicion",  
+                "date" : "YYYY-MM-DD hh:mm:ss",  
+                "duration" : "hh:mm:ss",  
+                "localization" : "Campus de Arrosadia s/n"  
+            },  
+            {  
+                "eventID" : "24",  
+                "name" : "Festival",  
+                "description": "Exhibicion de danzas de fin de curso",  
+                "image" : "img/events/Danzas",  
+                "date" : "YYYY-MM-DD hh:mm:ss",  
+                "duration" : "hh:mm:ss",  
+                "localization" : "Zentral Kafe-Teatro (Mercado de Santo Domingo, s/n)"  
+            },  
+            {  
+                "eventID" : "28",  
+                "name" : "Estreno",  
+                "description": "Estrenamos nueva obra de teatro",  
+                "image" : "img/events/Estreno",  
+                "date" : "YYYY-MM-DD hh:mm:ss",  
+                "duration" : "hh:mm:ss",  
+                "localization" : "Teatro Gayarre"  
+            }  
+     }  
+}  
+</code></pre>
+
+<blockquote><p>Usando la opción de <strong>artistID</strong></p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "events" :   
+            {  
+                "eventID" : "11",  
+                "name" : "Concierto UPNA",  
+                "description" : "Concierto presentando nuevo disco en la biblioteca de la UPNA",  
+                "image" : "img/events/Concierto",  
+                "date" : "YYYY-MM-DD hh:mm:ss",  
+                "duration" : "hh:mm:ss",  
+                "localization" : "Campus de Arrosadia s/n"  
+            },  
+            {  
+                "eventID" : "14",  
+                "name" : "Lectura de poesia",  
+                "description": "Presentaremos y leeremos alguno de los poemas de nuestro nuevo libro",  
+                "image" : "img/events/Lectura",  
+                "date" : "YYYY-MM-DD hh:mm:ss",  
+                "duration" : "hh:mm:ss",  
+                "localization" : "FNAC La Morea"  
+            },  
+            {  
+                "eventID" : "18",  
+                "name" : "Firma de discos",  
+                "description": "Firmaremos nuestro nuevo disco",  
+                "image" : "img/events/Firmas",  
+                "date" : "YYYY-MM-DD hh:mm:ss",  
+                "duration" : "hh:mm:ss",  
+                "localization" : "El Corte Ingles"  
+            }  
+     }  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -X GET https://livevent.es/api/v1/event_list.php  
+foo@foo:~$ curl -d "flag=2" -X GET https://livevent.es/api/v1/event_list.php  
+foo@foo:~$ curl -d "artistID=10" -X GET https://livevent.es/api/v1/event_list.php  
+</code></pre>
+
+<h2 id="Crear-notificaciones">Crear notificaciones</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/notification_create.php">notification_create.php</a></em><br/>
+Permite añadir hasta un máximo de 3 notificaciones para un evento determinado, como el programa del concierto, posibles cambios en el programa o breves avisos.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "eventID" : "string, required",  
+    "title" : "string, required",  
+    "description" : "string",  
+    "image" : "string"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Notificación registrada correctamente"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Ya existen notificaciones para ese evento"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir un título"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "eventID=5&amp;title=Nuevo disco&amp;image=release.jpg" -X POST https://livevent.es/api/v1/notification_create.php  
+</code></pre>
+
+<h2 id="Eliminar-notificaciones">Eliminar notificaciones</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/notification_delete.php">notification_delete.php</a></em><br/>
+Permite a un artista eliminar alguna de sus notificaciones.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "notificationID" : "integer"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "OK"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Introduce una notificacion a eliminar"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario ser artista para poder usar esta funcionalidad"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "notificationID=6" -X POST https://livevent.es/api/v1/notification_delete.php  
+</code></pre>
+
+<h2 id="Mostrar-notificaciones">Mostrar notificaciones</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/notification_list.php">notification_list.php</a></em><br/>
+Permite listar todas las notificaciones de un evento u obtener toda la información de una notificación concreta.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "artistID" : "integer, required",  
+    "eventID" : "integer, required"  
+}  
+</code></pre>
+
+<pre><code class="json  ">{  
+    "notificationID" : "integer"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<blockquote><p>Usando la opción de <strong>artistID</strong> y <strong>eventID</strong></p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "info" :   
+            {  
+                "notificationID" : "3",  
+                "title" : "Rueda de prensa",  
+                "description" : "Presentación de nueva exposición",  
+                "notificationimage" : "img/notifications/Presentacion",  
+                "name" : "Artista",  
+                "artistimage" : "img/artists/Artista"  
+            },  
+            {  
+                "notificationID" : "24",  
+                "title" : "Festival",  
+                "description": "Cambio en el horario del programa",  
+                "notificationimage" : "img/notifications/Programa",  
+                "name" : "Artista",  
+                "artistimage" : "img/artists/Artista"  
+            }  
+     }  
+}  
+</code></pre>
+
+<blockquote><p>Usando la opción de <strong>notificationID</strong></p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "title" : "Nuevo disco",  
+        "description" : "Presentamos nuevo disco",  
+        "image" : "img/notifications/Release"  
+    }  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "artistID=2&amp;eventID=10" -X POST https://livevent.es/api/v1/notification_list.php  
+foo@foo:~$ curl -d "notificationID=10" -X GET https://livevent.es/api/v1/notification_list.php  
+</code></pre>
+
+<h2 id="Responder-encuesta">Responder encuesta</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/survey_answer.php">survey_answer.php</a></em><br/>
+Permite guardar la respuesta del asistente a la encuesta de un evento.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "surveyID" : "integer, required",  
+    "score" : "integer, required",  
+    "opinion" : "string"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Respuesta registrada correctamente"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir una puntuación"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Ya existe una respuesta a este evento"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "surveyID=2&amp;score=10&amp;opinion=Buen concierto" -X POST https://livevent.es/api/v1/survey_answer.php  
+</code></pre>
+
+<h2 id="Crear-encuesta">Crear encuesta</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>GET</strong> <em>/v1/<a href="https://livevent.es/api/v1/survey_create.php">survey_create.php</a></em><br/>
+Permite listar los eventos que tiene ese artista y crear una encuesta para uno de sus eventos.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "eventID" : "integer, required",  
+    "date" : "date, required",  
+    "duration" : "time"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "surveys" :   
+            {  
+                "eventID" : "3",  
+                "name" : "Concierto",  
+                "description" : "Inicio de gira",  
+                "image" : "img/events/Gira",  
+                "date" : "2019-08-22 22:15:00",  
+                "duration" : "02:30:00"  
+            },  
+            {  
+                "eventID" : "5",  
+                "name" : "Festival",  
+                "description": "Exhibicion final de danzas",  
+                "image" : "img/events/Festival",  
+                "date" : "2019-12-29 18:30:00",  
+                "duration" : "01:30:00"  
+            }  
+    }  
+}  
+</code></pre>
+
+<blockquote><p>Usando la opción de <strong>eventID</strong>, <strong>date</strong> y <strong>duration</strong></p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Encuesta creada correctamente"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario ser artista para poder usar esta funcionalidad"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Ya existe una encuesta para ese evento"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -X GET https://livevent.es/api/v1/survey_create.php  
+foo@foo:~$ curl -d "eventID=10&amp;date=YYYY-MM-DD hh:mm:ss" -X GET https://livevent.es/api/v1/survey_create.php  
+</code></pre>
+
+<h2 id="Mostrar-encuestas">Mostrar encuestas</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>GET</strong> <em>/v1/<a href="https://livevent.es/api/v1/survey_list.php">survey_list.php</a></em><br/>
+Permite listar todas las encuestas existentes. Adicionalmente, permite listar todas las encuestas creadas por un artista.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "artistID" : "integer"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "surveys" :   
+            {  
+                "surveyID" : "2",  
+                "name" : "Concierto",  
+                "description" : "Nuevo disco",  
+                "image" : "img/events/Concierto"  
+            },  
+            {  
+                "surveyID" : "4",  
+                "name" : "Festival",  
+                "description": "Exhibicion de danzas de fin de curso",  
+                "image" : "img/events/Danzas"  
+            },  
+            {  
+                "eventID" : "7",  
+                "name" : "Estreno",  
+                "description": "Estrenamos nueva obra de teatro",  
+                "image" : "img/events/Estreno"  
+            }  
+     }  
+}  
+</code></pre>
+
+<blockquote><p>Usando la opción de <strong>artistID</strong></p></blockquote>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "events" :   
+            {  
+                "eventID" : "1",  
+                "name" : "Concierto UPNA",  
+                "description" : "Concierto presentando nuevo disco en la biblioteca de la UPNA",  
+                "image" : "img/events/Concierto"  
+            },  
+            {  
+                "eventID" : "2",  
+                "name" : "Lectura de poesia",  
+                "description": "Presentaremos y leeremos alguno de los poemas de nuestro nuevo libro",  
+                "image" : "img/events/Lectura"  
+            },  
+            {  
+                "eventID" : "8",  
+                "name" : "Firma de discos",  
+                "description": "Firmaremos nuestro nuevo disco",  
+                "image" : "img/events/Firmas"  
+            }  
+     }  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -X GET https://livevent.es/api/v1/survey_list.php  
+foo@foo:~$ curl -d "artistID=10" -X GET https://livevent.es/api/v1/survey_list.php  
+</code></pre>
+
+<h2 id="Resultados-encuesta">Resultados encuesta</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/survey_result.php">survey_result.php</a></em><br/>
+Permite mostrar al artista los resultados de la encuesta que ha seleccionado</p></blockquote>
+
+<pre><code class="json  ">{  
+    "eventID" : "integer, required"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" :  
+    {  
+        "info" :  
+            {  
+                "0" : 0,  
+                "1" : 5,  
+                "2" : 0,  
+                "3" : 3,  
+                "4" : 0,  
+                "5" : 8,  
+                "6" : 0,  
+                "7" : 1,  
+                "8" : 0,  
+                "9" : 2,  
+                "10" : 0  
+            },  
+        "comments" :  
+            {  
+                "opinions" :  
+                    {  
+                        "opinion" : "Mal sonido",  
+                        "opinion" : "Perfecto",  
+                        "opinion" : "Poco espacio"  
+                    }  
+            }  
+    }                        
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir un evento"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Introduce una encuesta válida"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "eventID=5" -X POST https://livevent.es/api/v1/survey_result.php  
+</code></pre>
+
+<h2 id="Registrar-usuarios">Registrar usuarios</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/user_create.php">user_create.php</a></em><br/>
+Permite registrar un usuario en la aplicación.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "IMEI" : "string, required"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "err" : false,  
+    "msg" : "Usuario registrado correctamente"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Es necesario introducir un IMEI"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Ese usuario ya esta registrado"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "IMEI=1574254484651-LE-adb92tg6ia9" -X POST https://livevent.es/api/v1/user_create.php  
+</code></pre>
+
+<h2 id="Sesión-de-usuarios">Sesión de usuarios</h2>
+
+<h3 id="Request">Request</h3>
+
+<blockquote><p><strong>POST</strong> <em>/v1/<a href="https://livevent.es/api/v1/user_login.php">user_login.php</a></em><br/>
+Permite registrar un usuario en la aplicación.</p></blockquote>
+
+<pre><code class="json  ">{  
+    "IMEI" : "string, required"  
+}  
+</code></pre>
+
+<h3 id="Response">Response</h3>
+
+<h3 id="200-OK">200 OK</h3>
+
+<pre><code class="json  ">{  
+    "userID" : 5,  
+    "IMEI" : "1574254484651-LE-adb92tg6ia9"  
+}  
+</code></pre>
+
+<h3 id="400-Datos-no-válidos">400 Datos no válidos</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "Debes introducir un token"  
+}  
+</code></pre>
+
+<h3 id="409-No-se-puede-completar-el-proceso">409 No se puede completar el proceso</h3>
+
+<pre><code class="json  ">{  
+    "err" : true,  
+    "msg" : "No existe ningún usuario con ese token"  
+}  
+</code></pre>
+
+<h3 id="Example">Example</h3>
+
+<pre><code class="bash  ">foo@foo:~$ curl -d "IMEI=1574254484651-LE-adb92tg6ia9" -X POST https://livevent.es/api/v1/user_login.php  
+</code></pre>
+
+                    </div>
+                </body>
+            </html>
