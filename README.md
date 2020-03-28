@@ -4,10 +4,10 @@
 <img src="logo.png">
 </h1>
 
-Aplicación para gestión de eventos y red social para promocion de artistas 🎵
+Aplicación para gestión de eventos y red social para promoción de artistas 🎵
 ===
 
-livEvent es la aplicación que gestiona eventos de todo tipo, promocionandolos y permitiendo una mejora en la interacción usuario-artista. La red social definitiva de artistas locales que buscan promocionar sus eventos y el de los usuarios que buscan seguirlos sin perderse ninguna de sus actuaciones.
+livEvent es la aplicación que gestiona eventos de todo tipo, promocionándolos y permitiendo una mejora en la interacción usuario-artista. La red social definitiva de artistas locales que buscan promocionar sus eventos y el de los usuarios que buscan seguirlos sin perderse ninguna de sus actuaciones.
 
 ![events](events.png)
 ![event_detail](event_detail.png)
