@@ -1,4 +1,4 @@
-#LivEvent's API REST
+# LivEvent's API REST
 
 [![LivEvent](https://livevent.es/logo.png "Livevent Icon")](https://livevent.es)
 
