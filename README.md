@@ -29,4 +29,4 @@ livEvent es la aplicación que gestiona eventos de todo tipo, promocionándolos 
 [![css_badge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 [![js_badge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
 
-Made by Oscar del Rio (delrio.107420@e.unavarra.es), Tomás Hernández (tomashq98@gmail.com) and [Fermín Lassa](https://github.com/lassa97)
+Made by Oscar del Rio (delrio.107420@e.unavarra.es), [Tomás Hernández](https://github.com/Tomas-H-Quintanilla) and [Fermín Lassa](https://github.com/lassa97)
